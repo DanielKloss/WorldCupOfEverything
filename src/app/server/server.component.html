@@ -1,0 +1,11 @@
+<p *ngIf="categories.length != 0">
+  Pick a World Cup to play
+</p>
+
+<button *ngFor="let category of categories" (click)="startServer(category)">{{category}}</button>
+
+<p>{{currentMatch?.teamOne}}</p>
+<p>vs.</p>
+<p>{{currentMatch?.teamTwo}}</p>
+
+<h1 *ngFor="let item of category?.items">{{item}}</h1>

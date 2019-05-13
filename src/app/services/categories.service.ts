@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Category } from './models/category';
+import { Category } from '../models/category';
 
 @Injectable({ providedIn: 'root' })
 export class CategoriesService {

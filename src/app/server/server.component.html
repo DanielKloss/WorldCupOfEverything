@@ -2,7 +2,7 @@
   Pick a World Cup to play
 </p>
 
-<button *ngFor="let category of categories" (click)="startServer(category)">{{category}}</button>
+<button *ngFor="let category of categories" (click)="startWorldCup(category)">{{category}}</button>
 
 <p>{{currentMatch?.teamOne}}</p>
 <p>vs.</p>

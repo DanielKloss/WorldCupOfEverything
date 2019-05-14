@@ -1,7 +1,7 @@
 <p>
-  Get ready to vote!
+  {{username}} - Get ready to vote!
 </p>
 
-<input type="text" placeholder="Enter your name" ng-model="username">
-<input type="text" placeholder="Enter your game number" ng-model="gameNumber">
-<button (click)="send('Hello')">JOIN</button>
+<button (click)="castVote(0)">{{home}}</button>
+<p>vs.</p>
+<button (click)="castVote(1)">{{away}}</button>

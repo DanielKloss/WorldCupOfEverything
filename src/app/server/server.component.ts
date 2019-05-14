@@ -20,6 +20,7 @@ export class ServerComponent implements OnInit {
   categories: string[] = [];
   category: Category;
   currentMatch: Match;
+  standing: Array<string>[] = [];
   counter = 0;
   numberOfPlayers = 0;
   homeVotes = 0;
@@ -38,7 +39,7 @@ export class ServerComponent implements OnInit {
     });
 
     this.socket.on('playerVoted', (vote) => {
-      if (vote == 1) {
+      if (vote == 0) {
         this.homeVotes++;
       } else {
         this.awayVotes++;
@@ -70,7 +71,6 @@ export class ServerComponent implements OnInit {
     let awayIndex = this.counter + 1;
     this.currentMatch = new Match(this.category.items[homeIndex], this.category.items[awayIndex]);
 
-    //wait for votes
     this.socket.emit("playMatch", { home: this.category.items[homeIndex], away: this.category.items[awayIndex] })
   }
 
@@ -79,15 +79,21 @@ export class ServerComponent implements OnInit {
     let awayIndex = this.counter + 1;
 
     if (this.homeVotes > this.awayVotes) {
+      this.standing.push([this.category.items[awayIndex], "1"])
       this.category.items.splice(awayIndex, 1);
     } else if (this.awayVotes > this.homeVotes) {
+      this.standing.push([this.category.items[homeIndex], "1"])
       this.category.items.splice(homeIndex, 1);
     } else {
+      this.standing.push([this.category.items[awayIndex], "1"])
       this.category.items.splice(awayIndex, 1);
     }
 
     if (this.category.items.length == 1) {
+      this.standing.push([this.category.items[0], "1"]);
       console.log("The winner is: " + this.category.items[0]);
+      this.socket.emit("matchOver", this.standing);
+      return;
     } else {
       if (this.counter >= this.category.items.length - 1) {
         this.counter = 0;
@@ -96,6 +102,8 @@ export class ServerComponent implements OnInit {
       }
     }
 
+    this.homeVotes = 0;
+    this.awayVotes = 0;
     this.playMatch();
   }
 

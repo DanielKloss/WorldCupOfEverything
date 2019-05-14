@@ -43,4 +43,6 @@ testem.log
 # Ignore all local history of files
 .history
 
+socket server/node_modules/*
+
 # End of https://www.gitignore.io/api/angular,visualstudiocode

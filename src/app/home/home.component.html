@@ -1,0 +1,3 @@
+<button routerLink="/server">SERVER</button>
+<input type="text" placeholder="Enter your name" [(ngModel)]="username">
+<button [routerLink]="['/client', username]">PLAYER</button>

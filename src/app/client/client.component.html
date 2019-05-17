@@ -1,0 +1,12 @@
+<p>
+  {{username}}
+</p>
+
+<div class="votes">
+  <div class="split home" [style.background-color]="home?.colour">
+    <button mat-button color="primary" (click)="castVote(0)">{{home?.name}}</button>
+  </div>
+  <div class="split away" [style.background-color]="away?.colour">
+    <button mat-button color="secondary" (click)="castVote(1)">{{away?.name}}</button>
+  </div>
+</div>

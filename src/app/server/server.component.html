@@ -1,0 +1,24 @@
+<!-- <p *ngIf="categories.length != 0">
+  Pick a World Cup to play
+</p>
+
+<p>{{currentMatch?.teamOne}}</p>
+<p>vs.</p>
+<p>{{currentMatch?.teamTwo}}</p>
+
+<h1 *ngFor="let item of category?.items">{{item}}</h1> -->
+
+<div class="setup">
+  <div class="split menu-area">
+    <mat-list>
+      <mat-list-item *ngFor="let category of categories">
+        <button mat-button color="primary" (click)="startWorldCup(category)">{{category}}</button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div class="split player-area">
+    <mat-list>
+      <mat-list-item *ngFor="let player of players" class="players">{{player}}</mat-list-item>
+    </mat-list>
+  </div>
+</div>

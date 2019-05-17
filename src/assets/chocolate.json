@@ -1,0 +1,132 @@
+{
+    "teams": [
+        {
+            "name": "Minstrels",
+            "colour": "brown"
+        },
+        {
+            "name": "Twix",
+            "colour": "gold"
+        },
+        {
+            "name": "Dairy Milk",
+            "colour": "purple"
+        },
+        {
+            "name": "Bounty",
+            "colour": "light blue"
+        },
+        {
+            "name": "Smarties",
+            "colour": "blue"
+        },
+        {
+            "name": "Fruit & Nut",
+            "colour": "purple"
+        },
+        {
+            "name": "Crunchie",
+            "colour": "gold"
+        },
+        {
+            "name": "Lion",
+            "colour": "brown"
+        },
+        {
+            "name": "Freddo",
+            "colour": "purple"
+        },
+        {
+            "name": "Kitkat Chunky",
+            "colour": "red"
+        },
+        {
+            "name": "Toffee Crisp",
+            "colour": "orange"
+        },
+        {
+            "name": "Milky Way",
+            "colour": "light blue"
+        },
+        {
+            "name": "Star Bar",
+            "colour": "red"
+        },
+        {
+            "name": "Snickers",
+            "colour": "brown"
+        },
+        {
+            "name": "Four-Finger Kitkat",
+            "colour": "red"
+        },
+        {
+            "name": "M&M's",
+            "colour": "yellow"
+        },
+        {
+            "name": "Wispa",
+            "colour": "purple"
+        },
+        {
+            "name": "Toblerone",
+            "colour": "gold"
+        },
+        {
+            "name": "Creme Egg",
+            "colour": "purple"
+        },
+        {
+            "name": "Double Decker",
+            "colour": "orange"
+        },
+        {
+            "name": "Flake",
+            "colour": "yellow"
+        },
+        {
+            "name": "Mars",
+            "colour": "black"
+        },
+        {
+            "name": "Yorkie",
+            "colour": "blue"
+        },
+        {
+            "name": "Maltesers",
+            "colour": "red"
+        },
+        {
+            "name": "Fry's Turkish Delight",
+            "colour": "pink"
+        },
+        {
+            "name": "Rolos",
+            "colour": "brown"
+        },
+        {
+            "name": "Twirl",
+            "colour": "yellow"
+        },
+        {
+            "name": "Caramel",
+            "colour": "gold"
+        },
+        {
+            "name": "Galaxy",
+            "colour": "brown"
+        },
+        {
+            "name": "Areo",
+            "colour": "brown"
+        },
+        {
+            "name": "Boost",
+            "colour": "blue"
+        },
+        {
+            "name": "Kinder Surprise",
+            "colour": "orange"
+        }
+    ]
+}

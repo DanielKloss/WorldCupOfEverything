@@ -1,0 +1,27 @@
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.home {
+    // background-color: var(--primary);
+    left: 0;
+}
+
+.away {
+    //background-color: var(--secondary);
+    right: 0;
+}
+
+button {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: block;
+    font-size: xx-large;
+}

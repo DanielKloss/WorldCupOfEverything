@@ -12,12 +12,21 @@ io.on('connection', socket => {
     socket.on('username', (username) => {
         users.push({
             id: socket.id,
+<<<<<<< HEAD
             username: username.toUpperCase()
         })
         console.log(username.toUpperCase() + " joined");
         console.log(users);
 
         socket.to(serverId).emit('userJoined', username.toUpperCase());
+=======
+            username: username
+        })
+        console.log(username + " joined");
+        console.log(users);
+
+        socket.to(serverId).emit('userJoined', username);
+>>>>>>> e0c723bf6b58469b7e45758755af840a0914b137
     });
 
     socket.on('serverJoin', () => {

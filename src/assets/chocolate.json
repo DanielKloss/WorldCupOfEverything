@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "teams": [
         {
@@ -130,3 +131,39 @@
         }
     ]
 }
+=======
+[
+    "Minstrels",
+    "Twix",
+    "Dairy Milk",
+    "Bounty",
+    "Smarties",
+    "Fruit & Nut",
+    "Crunchie",
+    "Lion",
+    "Freddo",
+    "Kitkat Chunky",
+    "Toffee Crisp",
+    "Milky Way",
+    "Star Bar",
+    "Snickers",
+    "Four-Finger Kitkat",
+    "M&M's",
+    "Wispa",
+    "Toblerone",
+    "Creme Egg",
+    "Double Decker",
+    "Flake",
+    "Mars",
+    "Yorkie",
+    "Maltesers",
+    "Fry's Turkish Delight",
+    "Rolos",
+    "Twirl",
+    "Caramel",
+    "Galaxy",
+    "Areo",
+    "Boost",
+    "Kinder Surprise"
+]
+>>>>>>> e0c723bf6b58469b7e45758755af840a0914b137

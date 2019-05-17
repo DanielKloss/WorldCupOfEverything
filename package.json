@@ -11,20 +11,30 @@
   },
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@angular/animations": "^7.2.15",
     "@angular/cdk": "^7.3.7",
+=======
+    "@angular/animations": "~7.2.0",
+>>>>>>> e0c723bf6b58469b7e45758755af840a0914b137
     "@angular/common": "~7.2.0",
     "@angular/compiler": "~7.2.0",
     "@angular/core": "~7.2.0",
     "@angular/forms": "~7.2.0",
+<<<<<<< HEAD
     "@angular/material": "^7.3.7",
+=======
+>>>>>>> e0c723bf6b58469b7e45758755af840a0914b137
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "@types/socket.io-client": "^1.4.32",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
+<<<<<<< HEAD
     "save": "^2.3.3",
+=======
+>>>>>>> e0c723bf6b58469b7e45758755af840a0914b137
     "socket.io-client": "^2.2.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"

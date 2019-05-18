@@ -7,6 +7,8 @@ import { CategoriesService } from '../services/categories.service'
 import { Category } from '../models/category';
 import { Match } from '../models/match';
 import { trigger, state, transition, animate, style } from '@angular/animations';
+import { Vote } from '../models/vote';
+import { delay } from 'q';
 
 @Component({
   selector: 'app-server',
@@ -21,6 +23,13 @@ import { trigger, state, transition, animate, style } from '@angular/animations'
       ]),
       transition('newRound => noNewRound', [
         animate('0.5s 1.5s')
+      ])
+    ]),
+    trigger('items', [
+      transition(':enter', [
+        style({ transform: 'scale(0.5)', opacity: 0 }),  // initial
+        animate('1s cubic-bezier(.8, -0.6, 0.2, 1.5)',
+          style({ transform: 'scale(1)', opacity: 1 }))  // final
       ])
     ])
   ]
@@ -38,29 +47,38 @@ export class ServerComponent implements OnInit {
   standing: Array<string>[] = [];
   counter: number = 0;
   players: string[] = []
-  homeVotes: number = 0;
-  awayVotes: number = 0;
+
+  homeVoters: string[] = [];
+  awayVoters: string[] = [];
+  homeVotersAnimation: string[] = [];
+  awayVotersAnimation: string[] = [];
+
+  showSetup: boolean;
+  showMatch: boolean;
 
   constructor(private categoryService: CategoriesService) { }
 
   ngOnInit() {
+    this.showSetup = true;
+
     this.socket = socketIo(this.SERVER_URL);
     this.socket.emit("serverJoin")
     this.getCategories();
 
-    this.socket.on('userJoined', (username) => {
+    this.socket.on('userJoined', (username: string) => {
       this.players.push(username);
     });
 
-    this.socket.on('playerVoted', (vote) => {
-      if (vote == 0) {
-        this.homeVotes++;
+    this.socket.on('playerVoted', (vote: Vote) => {
+      console.log(vote);
+      if (vote.team == 0) {
+        this.homeVoters.push(vote.name);
       } else {
-        this.awayVotes++;
+        this.awayVoters.push(vote.name)
       }
 
-      if (this.homeVotes + this.awayVotes == this.players.length) {
-        this.countVotes();
+      if (this.homeVoters.length + this.awayVoters.length == this.players.length) {
+        this.countHomeVotes();
       }
     });
   }
@@ -84,23 +102,42 @@ export class ServerComponent implements OnInit {
     this.socket.emit("playMatch", { home: this.category.teams[homeIndex], away: this.category.teams[awayIndex] })
   }
 
-  countVotes() {
+  countHomeVotes() {
+    if (this.homeVoters.length > 0) {
+      for (let i = 0; i < this.homeVoters.length; i++) {
+        this.homeVotersAnimation.push(this.homeVoters[i]);
+      }
+    } else {
+      this.countAwayVotes();
+    }
+  }
+
+  countAwayVotes() {
+    if (this.awayVoters.length > 0) {
+      for (let i = 0; i < this.awayVoters.length; i++) {
+        this.awayVotersAnimation.push(this.awayVoters[i]);
+      }
+    } else {
+      this.finishRound();
+    }
+  }
+
+  async finishRound() {
+    await delay(5000);
     let homeIndex = this.counter;
     let awayIndex = this.counter + 1;
 
     //Remove Losing Team
-    if (this.homeVotes > this.awayVotes) {
+    if (this.homeVoters.length > this.awayVoters.length) {
       this.standing.push([this.category.teams[awayIndex].name, "1"])
       this.category.teams.splice(awayIndex, 1);
-    } else if (this.awayVotes > this.homeVotes) {
+    } else if (this.awayVoters.length > this.homeVoters.length) {
       this.standing.push([this.category.teams[homeIndex].name, "1"])
       this.category.teams.splice(homeIndex, 1);
     } else {
       this.standing.push([this.category.teams[awayIndex].name, "1"])
       this.category.teams.splice(awayIndex, 1);
     }
-
-    //results animation
 
     //Decide if there's a winner
     if (this.category.teams.length == 1) {
@@ -117,8 +154,10 @@ export class ServerComponent implements OnInit {
     }
 
     //Reset votes
-    this.homeVotes = 0;
-    this.awayVotes = 0;
+    this.homeVoters = [];
+    this.awayVoters = [];
+    this.homeVotersAnimation = [];
+    this.awayVotersAnimation = [];
 
     //Decide if there's a new round
     let teamsLeft = this.category.teams.length;
@@ -147,7 +186,8 @@ export class ServerComponent implements OnInit {
 
     this.shuffleCategoryTeams();
 
-    this.categories = [];
+    this.showSetup = false;
+    this.showMatch = true;
 
     this.playMatch();
   }
@@ -159,6 +199,14 @@ export class ServerComponent implements OnInit {
       if (this.category != null) {
         this.playMatch();
       }
+    } else if (event.triggerName == "items" && event.element.id == "homeVoters" && event.fromState == "void") {
+      this.countAwayVotes();
+    } else if (event.triggerName == "items" && event.element.id == "awayVoters" && event.fromState == "void") {
+      this.finishRound();
     }
+  }
+
+  delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 }

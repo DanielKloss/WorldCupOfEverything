@@ -7,6 +7,7 @@ import { switchMap } from 'rxjs/operators';
 import { Team } from '../models/team';
 import { trigger, state, style, transition, animate, keyframes, animation } from '@angular/animations';
 import { Match } from '../models/match';
+import { Vote } from '../models/vote';
 
 @Component({
   selector: 'app-client',
@@ -47,7 +48,7 @@ export class ClientComponent implements OnInit {
   newRound: boolean;
   round: string;
   username: string;
-  vote: number;
+  vote: Vote;
   home: Team;
   away: Team;
 
@@ -77,7 +78,7 @@ export class ClientComponent implements OnInit {
   }
 
   castVote(vote: number) {
-    this.vote = vote;
+    this.vote = new Vote(this.username, vote);
     this.newVote = false;
   }
 

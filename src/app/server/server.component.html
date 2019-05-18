@@ -8,19 +8,40 @@
 
 <h1 *ngFor="let item of category?.items">{{item}}</h1> -->
 
-<div class="setup">
-  <div class="split menu-area">
+<div class="setup" *ngIf="showSetup">
+  <div class="split left">
+    <mat-list>
+      <mat-list-item *ngFor="let player of players" class="players">{{player}}</mat-list-item>
+    </mat-list>
+  </div>
+  <div class="split right">
     <mat-list>
       <mat-list-item *ngFor="let category of categories">
         <button mat-button color="primary" (click)="startWorldCup(category)">{{category}}</button>
       </mat-list-item>
     </mat-list>
   </div>
-  <div class="split player-area">
-    <mat-list>
-      <mat-list-item *ngFor="let player of players" class="players">{{player}}</mat-list-item>
-    </mat-list>
-  </div>
 </div>
 
-<div [@showNewRound]="newRound ? 'newRound' : 'noNewRound'" (@showNewRound.done)="onAnimationEvent($event)" class="newRound">{{round}}</div>
+<div class="match" *ngIf="showMatch">
+  <div class="split left">
+    {{currentMatch.home.name}}
+    <mat-list>
+      <mat-list-item @items (@items.done)="onAnimationEvent($event)" class="voter" id="homeVoters"
+        *ngFor="let player of homeVotersAnimation">
+        {{player}}
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div class="split right">
+    {{currentMatch.away.name}}
+    <mat-list>
+      <mat-list-item @items (@items.done)="onAnimationEvent($event)" class="voter" id="awayVoters"
+        *ngFor="let player of awayVotersAnimation">
+        {{player}}
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+  <div [@showNewRound]="newRound ? 'newRound' : 'noNewRound'" (@showNewRound.done)="onAnimationEvent($event)"
+    class="newRound">{{round}}</div>

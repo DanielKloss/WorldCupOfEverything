@@ -9,13 +9,19 @@
 }
 
 .home {
-    // background-color: var(--primary);
     left: 0;
 }
 
 .away {
-    //background-color: var(--secondary);
     right: 0;
+}
+
+.newRound{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    font-size: xx-large;
+    background-color: red;
 }
 
 button {

@@ -21,11 +21,10 @@ export class ServerComponent implements OnInit {
   category: Category;
   currentMatch: Match;
   standing: Array<string>[] = [];
-  counter = 0;
+  counter: number = 0;
   players: string[] = []
-  numberOfPlayers = 0;
-  homeVotes = 0;
-  awayVotes = 0;
+  homeVotes: number = 0;
+  awayVotes: number = 0;
 
   constructor(private categoryService: CategoriesService) { }
 
@@ -49,6 +48,14 @@ export class ServerComponent implements OnInit {
         this.countVotes();
       }
     });
+
+    this.socket.on('newRound', (round) => {
+      //animation for new round
+    });
+
+    this.socket.on('readyForNextMatch', () => {
+      this.playMatch();
+    });
   }
 
   getCategories(): void {
@@ -65,7 +72,6 @@ export class ServerComponent implements OnInit {
   playMatch() {
     let homeIndex = this.counter;
     let awayIndex = this.counter + 1;
-    console.log(this.category.teams);
     this.currentMatch = new Match(this.category.teams[homeIndex], this.category.teams[awayIndex]);
 
     this.socket.emit("playMatch", { home: this.category.teams[homeIndex], away: this.category.teams[awayIndex] })
@@ -75,6 +81,7 @@ export class ServerComponent implements OnInit {
     let homeIndex = this.counter;
     let awayIndex = this.counter + 1;
 
+    //Remove Losing Team
     if (this.homeVotes > this.awayVotes) {
       this.standing.push([this.category.teams[awayIndex].name, "1"])
       this.category.teams.splice(awayIndex, 1);
@@ -86,6 +93,9 @@ export class ServerComponent implements OnInit {
       this.category.teams.splice(awayIndex, 1);
     }
 
+    //results animation
+
+    //Decide if there's a winner
     if (this.category.teams.length == 1) {
       this.standing.push([this.category.teams[0].name, "1"]);
       console.log("The winner is: " + this.category.teams[0]);
@@ -99,15 +109,35 @@ export class ServerComponent implements OnInit {
       }
     }
 
+    //Reset votes
     this.homeVotes = 0;
     this.awayVotes = 0;
-    this.playMatch();
+
+    //Decide if there's a new round
+    let teamsLeft = this.category.teams.length;
+    let round = "";
+    if ((teamsLeft + this.standing.length) % teamsLeft == 0) {
+      if (teamsLeft == 2) {
+        round = "Final";
+      } else if (teamsLeft == 4) {
+        round = "Semi Final";
+      } else if (teamsLeft == 8) {
+        round = "Quarter Final";
+      } else if (teamsLeft == 16) {
+        round = "Round of 16";
+      } else if (teamsLeft == 32) {
+        round = "Round of 32";
+      }
+      this.socket.emit("newRound", round);
+    } else {
+      this.playMatch();
+    }
   }
 
   async startWorldCup(categoryName: string) {
     this.category = new Category(categoryName);
     this.category.teams = await this.categoryService.getCategoryTeams(categoryName.toLowerCase()).toPromise();
-    
+
     this.shuffleCategoryTeams();
 
     this.categories = [];

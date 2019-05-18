@@ -3,6 +3,7 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 users = [];
+nextMatchRequests = 0;
 
 port = 5000;
 host = 'localhost';
@@ -26,10 +27,6 @@ io.on('connection', socket => {
         console.log(serverId);
     });
 
-    socket.on('disconnect', function () {
-        console.log("user disconnected");
-    });
-
     socket.on('playerVote', (vote) => {
         console.log("vote recieved " + vote);
         socket.to(serverId).emit('playerVoted', vote);
@@ -43,6 +40,22 @@ io.on('connection', socket => {
     socket.on('matchOver', (standings) => {
         console.log("winner is: " + standings[standings.length - 1]);
         socket.broadcast.emit('matchOver', standings);
+    })
+
+    socket.on('newRound', (round) => {
+        console.log("New Round: " + round);
+        socket.broadcast.emit('newRound', round);
+    });
+
+    socket.on('requestNextMatch', () => {
+        console.log("Next match requested");
+
+        nextMatchRequests++;
+
+        if (nextMatchRequests == users.length) {
+            nextMatchRequests = 0;
+            socket.to(serverId).emit('readyForNextMatch');
+        }
     })
 });
 

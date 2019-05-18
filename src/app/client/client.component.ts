@@ -5,15 +5,49 @@ import { Observable } from 'rxjs/internal/Observable';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Team } from '../models/team';
+import { trigger, state, style, transition, animate, keyframes, animation } from '@angular/animations';
+import { Match } from '../models/match';
 
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
-  styleUrls: ['./client.component.scss']
+  styleUrls: ['./client.component.scss'],
+  animations: [
+    trigger('voteFlyIn', [
+      state('out', style({
+        opacity: 0.5,
+        width: '0%'
+      })),
+      state('in', style({
+        opacity: 1,
+        width: '50%'
+      })),
+      transition('out => in', [
+        animate('1s')
+      ]),
+      transition('in => out', [
+        animate('1s')
+      ])
+    ]),
+    trigger('showNewRound', [
+      state('noNewRound', style({ top: '100%' })),
+      state('newRound', style({ top: '0%' })),
+      transition('noNewRound => newRound', [
+        animate('2s')
+      ]),
+      transition('newRound => noNewRound', [
+        animate('0.5s 1.5s')
+      ])
+    ])
+  ]
 })
 export class ClientComponent implements OnInit {
 
+  newVote: boolean;
+  newRound: boolean;
+  round: string;
   username: string;
+  vote: number;
   home: Team;
   away: Team;
 
@@ -29,16 +63,31 @@ export class ClientComponent implements OnInit {
 
     this.socket.emit("username", this.username);
 
-    this.socket.on('playMatch', (match) => {
-      console.log("Match Started " + match.home.name);
-      console.log(match.home.colour + " vs " + match.away.colour);
-      this.home = new Team(match.home.name, match.home.colour);
-      this.away = new Team(match.away.name, match.away.colour);
+    this.socket.on('playMatch', (match: Match) => {
+      this.newVote = true;
+      this.home = match.home;
+      this.away = match.away;
+    });
+
+    this.socket.on('newRound', (round: string) => {
+      console.log("NEW ROUND: " + round)
+      this.round = round;
+      this.newRound = true;
     });
   }
 
   castVote(vote: number) {
-    this.socket.emit("playerVote", vote);
-    console.log("voted for " + vote);
+    this.vote = vote;
+    this.newVote = false;
+  }
+
+  onAnimationEvent(event: AnimationEvent) {
+    if (event.triggerName == "voteFlyIn" && event.toState == "out") {
+      this.socket.emit("playerVote", this.vote);
+    } else if (event.triggerName == "showNewRound" && event.toState == "newRound") {
+      this.newRound = false;
+    } else if (event.triggerName == "showNewRound" && event.toState == "noNewRound") {
+      this.socket.emit("requestNextMatch");
+    }
   }
 }

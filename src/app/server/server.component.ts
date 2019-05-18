@@ -6,11 +6,24 @@ import { Observable } from 'rxjs/internal/Observable';
 import { CategoriesService } from '../services/categories.service'
 import { Category } from '../models/category';
 import { Match } from '../models/match';
+import { trigger, state, transition, animate, style } from '@angular/animations';
 
 @Component({
   selector: 'app-server',
   templateUrl: './server.component.html',
-  styleUrls: ['./server.component.scss']
+  styleUrls: ['./server.component.scss'],
+  animations: [
+    trigger('showNewRound', [
+      state('noNewRound', style({ top: '100%' })),
+      state('newRound', style({ top: '0%' })),
+      transition('noNewRound => newRound', [
+        animate('2s')
+      ]),
+      transition('newRound => noNewRound', [
+        animate('0.5s 1.5s')
+      ])
+    ])
+  ]
 })
 export class ServerComponent implements OnInit {
 
@@ -20,6 +33,8 @@ export class ServerComponent implements OnInit {
   categories: string[] = [];
   category: Category;
   currentMatch: Match;
+  newRound: boolean = false;
+  round: string;
   standing: Array<string>[] = [];
   counter: number = 0;
   players: string[] = []
@@ -47,14 +62,6 @@ export class ServerComponent implements OnInit {
       if (this.homeVotes + this.awayVotes == this.players.length) {
         this.countVotes();
       }
-    });
-
-    this.socket.on('newRound', (round) => {
-      //animation for new round
-    });
-
-    this.socket.on('readyForNextMatch', () => {
-      this.playMatch();
     });
   }
 
@@ -115,20 +122,20 @@ export class ServerComponent implements OnInit {
 
     //Decide if there's a new round
     let teamsLeft = this.category.teams.length;
-    let round = "";
     if ((teamsLeft + this.standing.length) % teamsLeft == 0) {
       if (teamsLeft == 2) {
-        round = "Final";
+        this.round = "Final";
       } else if (teamsLeft == 4) {
-        round = "Semi Final";
+        this.round = "Semi Final";
       } else if (teamsLeft == 8) {
-        round = "Quarter Final";
+        this.round = "Quarter Final";
       } else if (teamsLeft == 16) {
-        round = "Round of 16";
+        this.round = "Round of 16";
       } else if (teamsLeft == 32) {
-        round = "Round of 32";
+        this.round = "Round of 32";
       }
-      this.socket.emit("newRound", round);
+      this.newRound = true;
+      this.socket.emit("newRound", this.round);
     } else {
       this.playMatch();
     }
@@ -143,5 +150,15 @@ export class ServerComponent implements OnInit {
     this.categories = [];
 
     this.playMatch();
+  }
+
+  onAnimationEvent(event: AnimationEvent) {
+    if (event.triggerName == "showNewRound" && event.toState == "newRound") {
+      this.newRound = false;
+    } else if (event.triggerName == "showNewRound" && event.toState == "noNewRound") {
+      if (this.category != null) {
+        this.playMatch();
+      }
+    }
   }
 }

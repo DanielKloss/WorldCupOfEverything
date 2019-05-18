@@ -22,3 +22,5 @@
     </mat-list>
   </div>
 </div>
+
+<div [@showNewRound]="newRound ? 'newRound' : 'noNewRound'" (@showNewRound.done)="onAnimationEvent($event)" class="newRound">{{round}}</div>

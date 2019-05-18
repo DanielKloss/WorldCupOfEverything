@@ -46,17 +46,6 @@ io.on('connection', socket => {
         console.log("New Round: " + round);
         socket.broadcast.emit('newRound', round);
     });
-
-    socket.on('requestNextMatch', () => {
-        console.log("Next match requested");
-
-        nextMatchRequests++;
-
-        if (nextMatchRequests == users.length) {
-            nextMatchRequests = 0;
-            socket.to(serverId).emit('readyForNextMatch');
-        }
-    })
 });
 
 http.listen(port, () => {

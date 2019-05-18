@@ -86,8 +86,6 @@ export class ClientComponent implements OnInit {
       this.socket.emit("playerVote", this.vote);
     } else if (event.triggerName == "showNewRound" && event.toState == "newRound") {
       this.newRound = false;
-    } else if (event.triggerName == "showNewRound" && event.toState == "noNewRound") {
-      this.socket.emit("requestNextMatch");
     }
   }
 }

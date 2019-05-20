@@ -1,13 +1,3 @@
-<!-- <p *ngIf="categories.length != 0">
-  Pick a World Cup to play
-</p>
-
-<p>{{currentMatch?.teamOne}}</p>
-<p>vs.</p>
-<p>{{currentMatch?.teamTwo}}</p>
-
-<h1 *ngFor="let item of category?.items">{{item}}</h1> -->
-
 <div class="setup" *ngIf="showSetup">
   <div class="split left">
     <mat-list>
@@ -25,23 +15,22 @@
 
 <div class="match" *ngIf="showMatch">
   <div class="split left">
-    {{currentMatch.home.name}}
-    <mat-list>
-      <mat-list-item @items (@items.done)="onAnimationEvent($event)" class="voter" id="homeVoters"
-        *ngFor="let player of homeVotersAnimation">
+    {{currentMatch?.home.name}}
+    <mat-list [@listAnimation]="homeVotersAnimation">
+      <mat-list-item class="voter" *ngFor="let player of homeVotersAnimation">
         {{player}}
       </mat-list-item>
     </mat-list>
   </div>
   <div class="split right">
-    {{currentMatch.away.name}}
-    <mat-list>
-      <mat-list-item @items (@items.done)="onAnimationEvent($event)" class="voter" id="awayVoters"
-        *ngFor="let player of awayVotersAnimation">
+    {{currentMatch?.away.name}}
+    <mat-list [@listAnimation]="awayVotersAnimation">
+      <mat-list-item class="voter" *ngFor="let player of awayVotersAnimation">
         {{player}}
       </mat-list-item>
     </mat-list>
   </div>
+</div>
 
-  <div [@showNewRound]="newRound ? 'newRound' : 'noNewRound'" (@showNewRound.done)="onAnimationEvent($event)"
-    class="newRound">{{round}}</div>
+<div [@showNewRound]="newRound ? 'newRound' : 'noNewRound'" (@showNewRound.done)="onAnimationEvent($event)"
+  class="newRound">{{round}}</div>

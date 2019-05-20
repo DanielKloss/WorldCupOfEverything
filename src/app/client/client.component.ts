@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import * as socketIo from 'socket.io-client';
-import { Observable } from 'rxjs/internal/Observable';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
 import { Team } from '../models/team';
-import { trigger, state, style, transition, animate, keyframes, animation } from '@angular/animations';
+import { trigger, state, style, transition, animate, keyframes, animation, AnimationEvent } from '@angular/animations';
 import { Match } from '../models/match';
 import { Vote } from '../models/vote';
 

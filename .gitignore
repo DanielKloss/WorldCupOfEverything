@@ -44,5 +44,7 @@ testem.log
 .history
 
 socket server/node_modules/*
+*.key
+*.crt
 
 # End of https://www.gitignore.io/api/angular,visualstudiocode

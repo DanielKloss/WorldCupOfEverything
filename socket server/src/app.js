@@ -28,7 +28,7 @@ io.on('connection', socket => {
     });
 
     socket.on('playerVote', (vote) => {
-        console.log("vote recieved " + vote);
+        console.log("vote recieved from " + vote.name + " for " + vote.team.name);
         socket.to(serverId).emit('playerVoted', vote);
     });
 
@@ -38,9 +38,9 @@ io.on('connection', socket => {
     });
 
     socket.on('matchOver', (standings) => {
-        console.log("winner is: " + standings[standings.length - 1]);
-        socket.broadcast.emit('matchOver', standings);
-    })
+        console.log("winner is: " + standings[standings.length - 1].name);
+        socket.broadcast.emit('matchFinished', standings);
+    });
 
     socket.on('newRound', (round) => {
         console.log("New Round: " + round);

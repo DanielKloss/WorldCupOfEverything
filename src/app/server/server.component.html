@@ -34,3 +34,14 @@
 
 <div [@showNewRound]="newRound ? 'newRound' : 'noNewRound'" (@showNewRound.done)="onAnimationEvent($event)"
   class="newRound">{{round}}</div>
+
+<div class="overview" *ngIf="showOverview">
+  <p>
+    {{standing[standing.length-1].name}} is the WINNER!
+  </p>
+  <mat-list>
+    <mat-list-item class="" *ngFor="let team of standing">
+      {{team.name}} - {{team.stage}} - Knocked Out by {{team.knockedOutBy.name}}
+    </mat-list-item>
+  </mat-list>
+</div>

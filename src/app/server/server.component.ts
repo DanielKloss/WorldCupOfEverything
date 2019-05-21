@@ -7,6 +7,8 @@ import { Category } from '../models/category';
 import { Match } from '../models/match';
 import { trigger, state, transition, animate, style, AnimationEvent, query, stagger } from '@angular/animations';
 import { Vote } from '../models/vote';
+import { Team } from '../models/team';
+import { Stage } from '../models/stage';
 
 @Component({
   selector: 'app-server',
@@ -46,8 +48,8 @@ export class ServerComponent implements OnInit {
   currentMatch: Match;
   nextMatch: Match;
   newRound: boolean = false;
-  round: string;
-  standing: string[] = [];
+  round: Stage;
+  standing: Team[] = [];
   counter: number = 0;
   players: string[] = []
 
@@ -56,6 +58,7 @@ export class ServerComponent implements OnInit {
 
   showSetup: boolean;
   showMatch: boolean;
+  showOverview: boolean;
 
   constructor(private categoryService: CategoriesService) { }
 
@@ -123,48 +126,47 @@ export class ServerComponent implements OnInit {
 
     //Remove Losing Team
     if (this.currentMatch.homeVoters.length > this.currentMatch.awayVoters.length) {
-      this.standing.push(this.category.teams[awayIndex].name)
+      this.category.teams[awayIndex].stage = this.round;
+      this.category.teams[awayIndex].knockedOutBy = this.category.teams[homeIndex];
+      this.standing.push(this.category.teams[awayIndex])
       this.category.teams.splice(awayIndex, 1);
     } else if (this.currentMatch.awayVoters.length > this.currentMatch.homeVoters.length) {
-      this.standing.push(this.category.teams[homeIndex].name)
+      this.category.teams[homeIndex].stage = this.round;
+      this.category.teams[homeIndex].knockedOutBy = this.category.teams[awayIndex];
+      this.standing.push(this.category.teams[homeIndex])
       this.category.teams.splice(homeIndex, 1);
     } else {
-      this.standing.push(this.category.teams[awayIndex].name)
+      this.category.teams[awayIndex].stage = this.round;
+      this.category.teams[awayIndex].knockedOutBy = this.category.teams[homeIndex];
+      this.standing.push(this.category.teams[awayIndex])
       this.category.teams.splice(awayIndex, 1);
     }
 
     //Decide if there's a winner
     if (this.category.teams.length == 1) {
-      this.standing.push(this.category.teams[0].name);
-      console.log("The winner is: " + this.category.teams[0]);
+      this.category.teams[0].stage = Stage.Winner;
+      this.standing.push(this.category.teams[0]);
+      console.log("The winner is: " + this.category.teams[0].name);
       this.socket.emit("matchOver", this.standing);
-      return;
+      this.showSetup = false;
+      this.showMatch = false;
+      this.showOverview = true;
     } else {
       if (this.counter >= this.category.teams.length - 1) {
         this.counter = 0;
       } else {
         this.counter++;
       }
-    }
 
-    //Decide if there's a new round
-    let teamsLeft = this.category.teams.length;
-    if ((teamsLeft + this.standing.length) % teamsLeft == 0) {
-      if (teamsLeft == 2) {
-        this.round = "Final";
-      } else if (teamsLeft == 4) {
-        this.round = "Semi Final";
-      } else if (teamsLeft == 8) {
-        this.round = "Quarter Final";
-      } else if (teamsLeft == 16) {
-        this.round = "Round of 16";
-      } else if (teamsLeft == 32) {
-        this.round = "Round of 32";
+      //Decide if there's a new round
+      let teamsLeft = this.category.teams.length;
+      if ((teamsLeft + this.standing.length) % teamsLeft == 0) {
+        this.round = this.getStage();
+        this.newRound = true;
+        this.socket.emit("newRound", this.round);
+      } else {
+        this.playMatch();
       }
-      this.newRound = true;
-      this.socket.emit("newRound", this.round);
-    } else {
-      this.playMatch();
     }
   }
 
@@ -174,10 +176,29 @@ export class ServerComponent implements OnInit {
 
     this.shuffleCategoryTeams();
 
+    this.round = this.getStage();
+
     this.showSetup = false;
     this.showMatch = true;
 
     this.playMatch();
+  }
+
+  getStage(): Stage {
+    let teamsLeft = this.category.teams.length;
+    if (teamsLeft == 2) {
+      return Stage.Final;
+    } else if (teamsLeft == 4) {
+      return Stage["Semi Final"];
+    } else if (teamsLeft == 8) {
+      return Stage["Quarter Final"];
+    } else if (teamsLeft == 16) {
+      return Stage["Round Of 16"];
+    } else if (teamsLeft == 32) {
+      return Stage["Round of 32"];
+    } else if (teamsLeft == 64) {
+      return Stage["Round of 64"];
+    }
   }
 
   onAnimationEvent(event: AnimationEvent) {

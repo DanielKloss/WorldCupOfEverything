@@ -1,0 +1,20 @@
+{
+    "teams": [
+        {
+            "name": "Dog",
+            "colour": "brown"
+        },
+        {
+            "name": "Cat",
+            "colour": "gold"
+        },
+        {
+            "name": "Snake",
+            "colour": "purple"
+        },
+        {
+            "name": "Bird",
+            "colour": "light blue"
+        }
+    ]
+}

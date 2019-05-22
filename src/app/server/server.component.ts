@@ -40,7 +40,7 @@ import { Stage } from '../models/stage';
 })
 export class ServerComponent implements OnInit {
 
-  private SERVER_URL = 'https://worldcupofeverything.herokuapp.com/';
+  private SERVER_URL = 'http://192.168.1.65:5000';
   private socket;
 
   categories: string[] = [];
@@ -65,7 +65,7 @@ export class ServerComponent implements OnInit {
   ngOnInit() {
     this.showSetup = true;
 
-    this.socket = socketIo(this.SERVER_URL, { secure: true });
+    this.socket = socketIo(this.SERVER_URL);
     this.socket.emit("serverJoin")
     this.getCategories();
 
@@ -84,6 +84,11 @@ export class ServerComponent implements OnInit {
         this.currentMatch = this.nextMatch;
         this.animateVotes();
       }
+    });
+
+    this.socket.on('userLeft', (username: string) => {
+      let index = this.players.findIndex(u => u == username);
+      this.players.splice(index, 1);
     });
   }
 

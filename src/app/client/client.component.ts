@@ -50,13 +50,13 @@ export class ClientComponent implements OnInit {
   home: Team;
   away: Team;
 
-  private SERVER_URL = 'https://worldcupofeverything.herokuapp.com/';
+  private SERVER_URL = 'http://192.168.1.65:5000';
   private socket;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.socket = socketIo(this.SERVER_URL, { secure: true });
+    this.socket = socketIo(this.SERVER_URL);
 
     this.username = this.route.snapshot.paramMap.get('username').toUpperCase();
 

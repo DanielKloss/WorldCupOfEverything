@@ -1,33 +1,29 @@
 @import '../../styles.scss';
 
 .titleContainer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 75%;
+    margin: 0;
 }
 
 .title{
     color:#FFFFFF;
     text-align:center;
     font-family: 'Karmatic Arcade';
-    font-size: 48px;
-    margin-top: 8%;
+    font-size: 36px;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px; 
 }
 
 .playerEntry {
-    position: absolute;
-    top: 25%;
-    right: 0;
-    left: 0;
-    bottom: 0;
+    margin: 0;
+    height: 100%;
 }
 
 .playerForm{
     text-align:center;
     color:#FFFFFF;
-    margin-top: 8%;
+    margin: 0;
+    padding-top: 40px;
 }
 
 .serverForm{

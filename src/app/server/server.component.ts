@@ -40,7 +40,7 @@ import { Stage } from '../models/stage';
 })
 export class ServerComponent implements OnInit {
 
-  private SERVER_URL = 'http://localhost:5000';
+  private SERVER_URL = 'http://192.168.1.65:5000';
   private socket;
 
   categories: string[] = [];

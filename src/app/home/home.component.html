@@ -1,3 +1,17 @@
-<button routerLink="/server">SERVER</button>
-<input type="text" placeholder="Enter your name" [(ngModel)]="username">
-<button [routerLink]="['/client', username]">PLAYER</button>
+<div class="titleContainer background-primary">
+    <p class="title">WORLD CUP OF EVERYTHING</p>
+</div>
+
+<div class="playerEntry background-secondary">
+    <form class="playerForm">
+        <mat-form-field style="margin-right: 10px">
+            <input matInput placeholder="Enter your name" style="color:white !important">
+        </mat-form-field>
+        <button mat-fab color="primary" style="margin-left: 10px" [routerLink]="['/client', username]">
+            <mat-icon>arrow_forward</mat-icon>
+        </button>
+    </form>
+    <div class="serverForm">
+        <button mat-button routerLink="/server">click here to start a server</button>
+    </div>
+</div>

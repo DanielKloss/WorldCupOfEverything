@@ -1,1 +1,103 @@
+@import '~@angular/material/theming';
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@include mat-core();
 
+$md-worldcupofeverything-primary: (
+    50 : #e4e7e8,
+    100 : #bcc3c5,
+    200 : #8f9b9e,
+    300 : #627277,
+    400 : #41545a,
+    500 : #1f363d,
+    600 : #1b3037,
+    700 : #17292f,
+    800 : #122227,
+    900 : #0a161a,
+    A100 : #5bd2ff,
+    A200 : #28c4ff,
+    A400 : #00b1f4,
+    A700 : #009fda,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #ffffff,
+    )
+);
+
+$md-worldcupofeverything-secondary: (
+    50 : #e8eff1,
+    100 : #c6d7dd,
+    200 : #a0bcc6,
+    300 : #79a1af,
+    400 : #5d8d9d,
+    500 : #40798c,
+    600 : #3a7184,
+    700 : #326679,
+    800 : #2a5c6f,
+    900 : #1c495c,
+    A100 : #9bdfff,
+    A200 : #68cfff,
+    A400 : #35bfff,
+    A700 : #1bb7ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$my-app-primary: mat-palette($md-worldcupofeverything-primary);
+$my-app-secondary:  mat-palette($md-worldcupofeverything-secondary);
+
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-secondary);
+
+@include angular-material-theme($my-app-theme);
+
+@font-face {
+    font-family: Karmatic Arcade;
+    src: url('~/assets/karmaticarcade.ttf') format("truetype");
+}
+
+.color-primary {
+    color: mat-color($my-app-primary);
+}
+
+.color-secondary {
+    color: mat-color($my-app-secondary);
+}
+
+.background-primary {
+    background-color: mat-color($my-app-primary);
+}
+
+.background-secondary {
+    background-color: mat-color($my-app-secondary);
+}
+
+button {
+    mat-icon {
+      display: block;
+    }
+  }

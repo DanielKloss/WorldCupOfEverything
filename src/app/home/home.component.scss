@@ -1,0 +1,56 @@
+@import '../../styles.scss';
+
+.titleContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 75%;
+}
+
+.title{
+    color:#FFFFFF;
+    text-align:center;
+    font-family: 'Karmatic Arcade';
+    font-size: 48px;
+    margin-top: 8%;
+}
+
+.playerEntry {
+    position: absolute;
+    top: 25%;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.playerForm{
+    text-align:center;
+    color:#FFFFFF;
+    margin-top: 8%;
+}
+
+.serverForm{
+    text-align:center;
+    color:#1F363D;
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: white !important;
+}
+
+::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: white !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: white !important;;
+}

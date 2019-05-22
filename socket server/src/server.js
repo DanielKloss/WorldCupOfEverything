@@ -1,6 +1,10 @@
-const app = require('express')();
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
+const express = require('express')
+const path = require('path')
+const PORT = process.env.PORT || 5000
+
+express()
+  .use(express.static(path.join(__dirname, 'public')))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 users = [];
 
@@ -45,8 +49,4 @@ io.on('connection', socket => {
         console.log("New Round: " + round);
         socket.broadcast.emit('newRound', round);
     });
-});
-
-http.listen(port, () => {
-    console.log("started on port " + port);
 });

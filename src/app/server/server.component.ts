@@ -80,7 +80,7 @@ export class ServerComponent implements OnInit {
         this.nextMatch.awayVoters.push(vote.name)
       }
 
-      if (this.nextMatch.homeVoters.length + this.nextMatch.awayVoters.length == this.players.length) {
+      if (this.players.length == this.nextMatch.homeVoters.length + this.nextMatch.awayVoters.length) {
         this.currentMatch = this.nextMatch;
         this.animateVotes();
       }
@@ -145,8 +145,8 @@ export class ServerComponent implements OnInit {
     //Decide if there's a winner
     if (this.category.teams.length == 1) {
       this.category.teams[0].stage = Stage.Winner;
+      this.category.teams[0].knockedOutBy = new Team("no one", "");
       this.standing.push(this.category.teams[0]);
-      console.log("The winner is: " + this.category.teams[0].name);
       this.socket.emit("matchOver", this.standing);
       this.showSetup = false;
       this.showMatch = false;

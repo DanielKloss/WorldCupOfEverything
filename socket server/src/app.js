@@ -3,7 +3,6 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 users = [];
-nextMatchRequests = 0;
 
 port = 5000;
 host = 'localhost';

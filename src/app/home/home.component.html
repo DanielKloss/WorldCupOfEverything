@@ -5,7 +5,8 @@
 <div class="playerEntry background-secondary">
     <form class="playerForm">
         <mat-form-field style="margin-right: 10px">
-            <input matInput placeholder="Enter your name" style="color:white !important">
+            <input matInput placeholder="Enter your name" style="color:white !important" [(ngModel)]="username"
+                [ngModelOptions]="{standalone: true}">
         </mat-form-field>
         <button mat-fab color="primary" style="margin-left: 10px" [routerLink]="['/client', username]">
             <mat-icon>arrow_forward</mat-icon>

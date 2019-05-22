@@ -40,7 +40,7 @@ import { Stage } from '../models/stage';
 })
 export class ServerComponent implements OnInit {
 
-  private SERVER_URL = 'https://192.168.1.65:5000';
+  private SERVER_URL = 'https://worldcupofeverything.herokuapp.com/';
   private socket;
 
   categories: string[] = [];
@@ -65,7 +65,7 @@ export class ServerComponent implements OnInit {
   ngOnInit() {
     this.showSetup = true;
 
-    this.socket = socketIo(this.SERVER_URL);
+    this.socket = socketIo(this.SERVER_URL, { secure: true });
     this.socket.emit("serverJoin")
     this.getCategories();
 

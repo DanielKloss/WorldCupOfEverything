@@ -6,63 +6,63 @@
         },
         {
             "name": "Tiger",
-            "colour": "gold"
+            "colour": "orange"
         },
         {
             "name": "Whale",
-            "colour": "purple"
+            "colour": "blue"
         },
         {
             "name": "Cat",
-            "colour": "light blue"
+            "colour": "orange"
         },
         {
             "name": "Sheep",
-            "colour": "brown"
+            "colour": "white"
         },
         {
             "name": "Eagle",
-            "colour": "gold"
+            "colour": "white"
         },
         {
             "name": "Goldfish",
-            "colour": "purple"
+            "colour": "gold"
         },
         {
             "name": "Meerkat",
-            "colour": "light blue"
+            "colour": "brown"
         },
         {
             "name": "Rabbit",
-            "colour": "brown"
+            "colour": "white"
         },
         {
             "name": "Gorilla",
-            "colour": "gold"
+            "colour": "grey"
         },
         {
             "name": "Shark",
-            "colour": "purple"
+            "colour": "blue"
         },
         {
             "name": "Horse",
-            "colour": "light blue"
-        },
-        {
-            "name": "Giraffe",
             "colour": "brown"
         },
         {
+            "name": "Giraffe",
+            "colour": "yellow"
+        },
+        {
             "name": "Hedgehog",
-            "colour": "gold"
+            "colour": "brown"
         },
         {
             "name": "Hippo",
-            "colour": "purple"
+            "colour": "blue"
         },
         {
             "name": "Budgie",
-            "colour": "light blue"
+            "colour": "yellow"
         },
         {
             "name": "Owl",
@@ -70,63 +70,63 @@
         },
         {
             "name": "Bear",
-            "colour": "gold"
+            "colour": "brown"
         },
         {
             "name": "Penguin",
-            "colour": "purple"
+            "colour": "white"
         },
         {
             "name": "Cow",
-            "colour": "light blue"
+            "colour": "white"
         },
         {
             "name": "Guinea Pig",
-            "colour": "light blue"
+            "colour": "brown"
         },
         {
             "name": "Giant Panda",
-            "colour": "brown"
+            "colour": "white"
         },
         {
             "name": "Dog",
-            "colour": "gold"
-        },
-        {
-            "name": "Chicken",
-            "colour": "purple"
-        },
-        {
-            "name": "Pig",
-            "colour": "light blue"
-        },
-        {
-            "name": "Clownfish",
             "colour": "brown"
         },
         {
-            "name": "Rhino",
-            "colour": "gold"
+            "name": "Chicken",
+            "colour": "yellow"
         },
         {
-            "name": "Chimpanzee",
-            "colour": "purple"
+            "name": "Pig",
+            "colour": "pink"
+        },
+        {
+            "name": "Clown fish",
+            "colour": "orange"
+        },
+        {
+            "name": "Rhino",
+            "colour": "grey"
+        },
+        {
+            "name": "Chimp",
+            "colour": "brown"
         },
         {
             "name": "Mouse",
-            "colour": "gold"
+            "colour": "brown"
         },
         {
             "name": "Python",
-            "colour": "purple"
+            "colour": "green"
         },
         {
             "name": "Koala",
-            "colour": "gold"
+            "colour": "grey"
         },
         {
             "name": "Lion",
-            "colour": "purple"
+            "colour": "gold"
         }
     ]
 }

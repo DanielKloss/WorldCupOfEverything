@@ -1,6 +1,6 @@
-<p>
-  {{username}}
-</p>
+<div class="titleContainer background-primary">
+  <p class="title">{{username}}</p>
+</div>
 
 <div class="votes" *ngIf="home != null && away != null">
   <div [@voteFlyIn]="newVote ? 'in' : 'out'" (@voteFlyIn.done)="onAnimationEvent($event)" class="split home"
@@ -12,8 +12,13 @@
   </div>
 </div>
 
-<div *ngIf="home == null && away == null">
-  <p>Waiting for other player's votes...</p>
+<div *ngIf="newVote == false">
+  <p class="waitingInstructions">Waiting for other player's votes...</p>
 </div>
 
-<div [@showNewRound]="newRound ? 'newRound' : 'noNewRound'" (@showNewRound.done)="onAnimationEvent($event)" class="newRound">{{round}}</div>
+<div *ngIf="home == null && away == null">
+  <p class="waitingInstructions">Waiting for game to start</p>
+</div>
+
+<div [@showNewRound]="newRound ? 'newRound' : 'noNewRound'" (@showNewRound.done)="onAnimationEvent($event)"
+  class="newRound">{{round}}</div>

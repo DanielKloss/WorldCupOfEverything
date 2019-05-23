@@ -1,15 +1,13 @@
 <div class="setup" *ngIf="showSetup">
-  <div class="split left">
-    <mat-list>
-      <mat-list-item *ngFor="let player of players" class="players">{{player}}</mat-list-item>
-    </mat-list>
+  <div class="split left background-primary">
+    <p class="listTitle">PLAYERS</p>
+    <mat-card *ngFor="let player of players" class="players">{{player}}</mat-card>
   </div>
-  <div class="split right">
-    <mat-list>
-      <mat-list-item *ngFor="let category of categories">
-        <button mat-button color="primary" (click)="startWorldCup(category)">{{category}}</button>
-      </mat-list-item>
-    </mat-list>
+  <div class="split right background-secondary">
+    <p class="listTitle">CATEGORIES</p>
+    <p class="categoryInstructions">Once all players are in, choose a category</p>
+    <button mat-button class="categoryButton" (click)="startWorldCup(category)"
+      *ngFor="let category of categories">{{category}}</button>
   </div>
 </div>
 

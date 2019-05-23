@@ -80,6 +80,11 @@ $my-app-theme: mat-light-theme($my-app-primary, $my-app-secondary);
     src: url('~/assets/karmaticarcade.ttf') format("truetype");
 }
 
+@font-face {
+    font-family: Arcade Classic;
+    src: url('~/assets/arcadeclassic.ttf') format("truetype");
+}
+
 body, html { 
     width: 100%;
     height: 100%;

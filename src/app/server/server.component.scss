@@ -5,7 +5,6 @@
     z-index: 1;
     top: 0;
     overflow-x: hidden;
-    padding-top: 20px;
 }
 
 .left {
@@ -18,34 +17,35 @@
 
 .listTitle{
     font-family: 'Karmatic Arcade';
-    font-size: 50px;
+    font-size: 5vw;
     color:white;
     text-align: center;
 }
 
 .players{
-    margin: 10px 100px 10px 100px;
-    padding-top: 10px;
-    padding-bottom: 10px; 
+    margin: 2vw 10vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
     font-family: 'Arcade Classic';
-    font-size: 30px;
+    font-size: 4vw;
 }
 
 .categoryInstructions{
     font-family: 'Arcade Classic';
-    font-size: 30px;
+    font-size: 3vw;
     color:white;
     text-align: center;
 }
 
 .categoryButton{
-    display:block;
+    display: block;
     color: #1f363d;
     background-color: white;
-    margin: 20px auto;
-    font-size: 30px;
+    margin: 2vw auto;
+    font-size: 4vw;
     font-family: 'arcade classic';
-    width:40%;
+    width: 25vw;
+    height: 3vw;
 }
 
 .newRound{

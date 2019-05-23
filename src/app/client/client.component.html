@@ -1,24 +1,23 @@
-<div class="titleContainer background-primary">
-  <p class="title">{{username}}</p>
-</div>
-
-<div class="votes" *ngIf="home != null && away != null">
-  <div [@voteFlyIn]="newVote ? 'in' : 'out'" (@voteFlyIn.done)="onAnimationEvent($event)" class="split home"
-    [style.background-color]="home?.colour">
-    <button mat-button color="primary" (click)="castVote(0)">{{home?.name}}</button>
+  <div class="background-primary">
+    <p class="title">{{username}}</p>
   </div>
-  <div [@voteFlyIn]="newVote ? 'in' : 'out'" class="split away" [style.background-color]="away?.colour">
-    <button mat-button color="secondary" (click)="castVote(1)">{{away?.name}}</button>
-  </div>
-</div>
+    <div class="votes" *ngIf="home != null && away != null">
+      <div [@voteFlyIn]="newVote ? 'in' : 'out'" (@voteFlyIn.done)="onAnimationEvent($event)" class="split home"
+        [style.background-color]="home?.colour">
+        <button mat-button class="votingButton" (click)="castVote(0)">{{home?.name}}</button>
+      </div>
+      <div [@voteFlyIn]="newVote ? 'in' : 'out'" class="split away" [style.background-color]="away?.colour">
+        <button mat-button class="votingButton" (click)="castVote(1)">{{away?.name}}</button>
+      </div>
+    </div>
 
-<div *ngIf="newVote == false">
-  <p class="waitingInstructions">Waiting for other player's votes...</p>
-</div>
+    <div *ngIf="newVote == false">
+      <p class="waitingInstructions">Waiting for other player's votes...</p>
+    </div>
 
-<div *ngIf="home == null && away == null">
-  <p class="waitingInstructions">Waiting for game to start</p>
-</div>
+    <div *ngIf="home == null && away == null">
+      <p class="waitingInstructions">Waiting for game to start</p>
+    </div>
 
 <div [@showNewRound]="newRound ? 'newRound' : 'noNewRound'" (@showNewRound.done)="onAnimationEvent($event)"
   class="newRound">{{round}}</div>

@@ -14,10 +14,10 @@ import { Vote } from '../models/vote';
   animations: [
     trigger('voteFlyIn', [
       state('out', style({
-        width: '0%'
+        height: '0%'
       })),
       state('in', style({
-        width: '50%'
+        height: '100%'
       })),
       transition('out => in', [
         animate('1s')

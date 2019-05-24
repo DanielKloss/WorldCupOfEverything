@@ -181,7 +181,7 @@ export class ServerComponent implements OnInit {
     this.shuffleCategoryTeams();
 
     this.round = this.getStage();
-    console.log(this.round);
+    this.socket.emit("newRound", this.round);
 
     this.showSetup = false;
     this.showMatch = true;

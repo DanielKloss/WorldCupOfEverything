@@ -106,22 +106,21 @@ body, html {
     background-color: mat-color($my-app-secondary);
 }
 
+.background-tertary {
+    background-color: #8f9b9e;
+}
+
 button {
     mat-icon {
       display: block;
     }
   }
 
-.title-container {
-    height: 33vw;
-
-}
-
 .title{
     color:#FFFFFF;
     text-align:center;
     font-family: 'Karmatic Arcade';
-    font-size: 10vw;
+    font-size: 7vw;
     margin: 0;
     padding-top: 5vw;
     padding-bottom: 4vw;

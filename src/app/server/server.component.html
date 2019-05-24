@@ -1,32 +1,54 @@
 <div class="setup" *ngIf="showSetup">
-  <div class="split left background-primary">
-    <p class="listTitle">PLAYERS</p>
-    <mat-card *ngFor="let player of players" class="players">{{player}}</mat-card>
+  <div class="background-primary">
+    <div class="title">Setup</div>
   </div>
-  <div class="split right background-secondary">
-    <p class="listTitle">CATEGORIES</p>
-    <p class="categoryInstructions">Once all players are in, choose a category</p>
-    <button mat-button class="categoryButton" (click)="startWorldCup(category)"
-      *ngFor="let category of categories">{{category}}</button>
+  <div class="split">
+    <div class="splitContianer">
+      <div class="left background-tertary">
+        <p class="listTitle">PLAYERS</p>
+        <mat-card *ngFor="let player of players" class="players">{{player}}</mat-card>
+      </div>
+      <div class="right background-secondary">
+        <p class="listTitle">CATEGORIES</p>
+        <p class="categoryInstructions">Once all players are in, choose a category</p>
+        <button mat-button class="categoryButton" (click)="startWorldCup(category)"
+          *ngFor="let category of categories">{{category}}</button>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="match" *ngIf="showMatch">
-  <div class="split left">
-    {{currentMatch?.home.name}}
-    <mat-list [@listAnimation]="homeVotersAnimation">
-      <mat-list-item class="voter" *ngFor="let player of homeVotersAnimation">
-        {{player}}
-      </mat-list-item>
-    </mat-list>
+  <div class="background-primary">
+    <div class="title">{{round}}</div>
   </div>
-  <div class="split right">
-    {{currentMatch?.away.name}}
-    <mat-list [@listAnimation]="awayVotersAnimation">
-      <mat-list-item class="voter" *ngFor="let player of awayVotersAnimation">
-        {{player}}
-      </mat-list-item>
-    </mat-list>
+  <div class="split">
+    <div class="splitContainer">
+      <div class="left background-tertary">
+        <p class="teamTitle">
+          {{currentMatch?.home.name}}
+        </p>
+        <mat-grid-list cols="1" rowHeight="6:1" [@listAnimation]="homeVotersAnimation">
+          <mat-grid-tile *ngFor="let player of homeVotersAnimation">
+            <mat-card class="players">
+              {{player}}
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+      <div class="right background-secondary">
+        <p class="teamTitle">
+          {{currentMatch?.away.name}}
+        </p>
+        <mat-grid-list cols="1" rowHeight="6:1" [@listAnimation]="awayVotersAnimation">
+          <mat-grid-tile *ngFor="let player of awayVotersAnimation">
+            <mat-card class="players">
+              {{player}}
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </div>
   </div>
 </div>
 

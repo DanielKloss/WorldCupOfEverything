@@ -1,4 +1,4 @@
-<div class="titleContainer background-primary">
+<div class="title-container background-primary">
     <p class="title">WORLD CUP OF EVERYTHING</p>
 </div>
 
@@ -8,7 +8,7 @@
             <input matInput placeholder="Enter your name" style="color:white !important" [(ngModel)]="username"
                 [ngModelOptions]="{standalone: true}">
         </mat-form-field>
-        <button mat-fab color="primary" style="margin-left: 10px" [routerLink]="['/client', username]">
+        <button mat-fab color="primary" [routerLink]="['/client', username]">
             <mat-icon>arrow_forward</mat-icon>
         </button>
     </form>

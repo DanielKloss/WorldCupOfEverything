@@ -112,8 +112,9 @@ button {
     }
   }
 
-.titleContainer {
-    margin: 0;
+.title-container {
+    height: 33vw;
+
 }
 
 .title{
@@ -122,7 +123,6 @@ button {
     font-family: 'Karmatic Arcade';
     font-size: 10vw;
     margin: 0;
-    height: 15vw;
     padding-top: 5vw;
     padding-bottom: 4vw;
 }

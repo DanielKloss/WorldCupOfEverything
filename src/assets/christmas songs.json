@@ -1,0 +1,132 @@
+{
+    "teams": [
+        {
+            "name": "Merry Christmas Everyone",
+            "colour": "yellow"
+        },
+        {
+            "name": "Jingle Bells",
+            "colour": "yellow"
+        },
+        {
+            "name": "O come all ye faithful",
+            "colour": "pink"
+        },
+        {
+            "name": "I wish it could be christmas everyday",
+            "colour": "white"
+        },
+        {
+            "name": "Rudolph the red nosed reindeer",
+            "colour": "red"
+        },
+        {
+            "name": "Fairytale of new york",
+            "colour": "green"
+        },
+        {
+            "name": "griving home for christmas",
+            "colour": "grey"
+        },
+        {
+            "name": "silent night",
+            "colour": "yellow"
+        },
+        {
+            "name": "Santa Claus is comin to town",
+            "colour": "red"
+        },
+        {
+            "name": "Marys boy child",
+            "colour": "pink"
+        },
+        {
+            "name": "Do they know its christmas",
+            "colour": "gold"
+        },
+        {
+            "name": "Hark the herald angels sing",
+            "colour": "blue"
+        },
+        {
+            "name": "stay another day",
+            "colour": "grey"
+        },
+        {
+            "name": "Santa baby",
+            "colour": "red"
+        },
+        {
+            "name": "White Christmas",
+            "colour": "white"
+        },
+        {
+            "name": "Christmas Wrapping",
+            "colour": "green"
+        },
+        {
+            "name": "Away in a manger",
+            "colour": "yellow"
+        },
+        {
+            "name": "Last Christmas",
+            "colour": "purple"
+        },
+        {
+            "name": "The christmas song",
+            "colour": "pink"
+        },
+        {
+            "name": "Wonderful Christmas Time",
+            "colour": "red"
+        },
+        {
+            "name": "Mistletoe and wine",
+            "colour": "red"
+        },
+        {
+            "name": "Stop the cavalry",
+            "colour": "red"
+        },
+        {
+            "name": "All I want for christmas is you",
+            "colour": "yellow"
+        },
+        {
+            "name": "God rest ye merry gentlemen",
+            "colour": "white"
+        },
+        {
+            "name": "Winter Wonderland",
+            "colour": "yellow"
+        },
+        {
+            "name": "Merry Xmas everybody",
+            "colour": "gold"
+        },
+        {
+            "name": "Its beginning to look a lot like christmas",
+            "colour": "white"
+        },
+        {
+            "name": "Let it snow",
+            "colour": "white"
+        },
+        {
+            "name": "Frosty the snowman",
+            "colour": "pink"
+        },
+        {
+            "name": "Little Donkey",
+            "colour": "brown"
+        },
+        {
+            "name": "Have yourself a merry little christmas",
+            "colour": "yellow"
+        },
+        {
+            "name": "In the bleak midwinter",
+            "colour": "blue"
+        }
+    ]
+}

@@ -1,0 +1,132 @@
+{
+    "teams": [
+        {
+            "name": "Whiskey",
+            "colour": "brown"
+        },
+        {
+            "name": "Milk",
+            "colour": "white"
+        },
+        {
+            "name": "Tequila",
+            "colour": "gold"
+        },
+        {
+            "name": "Diet Coke",
+            "colour": "brown"
+        },
+        {
+            "name": "Beer",
+            "colour": "gold"
+        },
+        {
+            "name": "Red Bull",
+            "colour": "red"
+        },
+        {
+            "name": "Baileys",
+            "colour": "white"
+        },
+        {
+            "name": "Tango",
+            "colour": "orange"
+        },
+        {
+            "name": "Rum",
+            "colour": "brown"
+        },
+        {
+            "name": "Coffee",
+            "colour": "brown"
+        },
+        {
+            "name": "White Wine",
+            "colour": "green"
+        },
+        {
+            "name": "Irn-Bru",
+            "colour": "orange"
+        },
+        {
+            "name": "Alcopops",
+            "colour": "pink"
+        },
+        {
+            "name": "Milkshakes",
+            "colour": "pink"
+        },
+        {
+            "name": "Vodka",
+            "colour": "white"
+        },
+        {
+            "name": "Orange Juice",
+            "colour": "orange"
+        },
+        {
+            "name": "Bacardi",
+            "colour": "grey"
+        },
+        {
+            "name": "Slush Puppie",
+            "colour": "blue"
+        },
+        {
+            "name": "Red Wine",
+            "colour": "red"
+        },
+        {
+            "name": "Lilt",
+            "colour": "green"
+        },
+        {
+            "name": "Gin",
+            "colour": "green"
+        },
+        {
+            "name": "Orange Squash",
+            "colour": "orange"
+        },
+        {
+            "name": "Cider",
+            "colour": "gold"
+        },
+        {
+            "name": "Tea",
+            "colour": "brown"
+        },
+        {
+            "name": "Champagne",
+            "colour": "green"
+        },
+        {
+            "name": "Coca-Cola",
+            "colour": "brown"
+        },
+        {
+            "name": "Brandy",
+            "colour": "brown"
+        },
+        {
+            "name": "Ribena",
+            "colour": "purple"
+        },
+        {
+            "name": "Shandy",
+            "colour": "Yellow"
+        },
+        {
+            "name": "Hot Chocolate",
+            "colour": "brown"
+        },
+        {
+            "name": "Lemonade",
+            "colour": "yellow"
+        },
+        {
+            "name": "Water",
+            "colour": "blue"
+        }
+    ]
+}

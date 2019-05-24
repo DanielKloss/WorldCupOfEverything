@@ -25,16 +25,6 @@ import { Vote } from '../models/vote';
       transition('in => out', [
         animate('1s')
       ])
-    ]),
-    trigger('showNewRound', [
-      state('noNewRound', style({ top: '100%' })),
-      state('newRound', style({ top: '0%' })),
-      transition('noNewRound => newRound', [
-        animate('2s')
-      ]),
-      transition('newRound => noNewRound', [
-        animate('0.5s 1.5s')
-      ])
     ])
   ]
 })
@@ -67,9 +57,7 @@ export class ClientComponent implements OnInit {
     });
 
     this.socket.on('newRound', (round: string) => {
-      console.log("NEW ROUND: " + round)
       this.round = round;
-      this.newRound = true;
     });
   }
 
@@ -81,8 +69,6 @@ export class ClientComponent implements OnInit {
   onAnimationEvent(event: AnimationEvent) {
     if (event.triggerName == "voteFlyIn" && event.toState == "out") {
       this.socket.emit("playerVote", this.vote);
-    } else if (event.triggerName == "showNewRound" && event.toState == "newRound") {
-      this.newRound = false;
     }
   }
 }

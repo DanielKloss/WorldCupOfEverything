@@ -14,16 +14,6 @@ import { Team } from '../models/team';
   templateUrl: './server.component.html',
   styleUrls: ['./server.component.scss'],
   animations: [
-    trigger('showNewRound', [
-      state('noNewRound', style({ top: '100%' })),
-      state('newRound', style({ top: '0%' })),
-      transition('noNewRound => newRound', [
-        animate('2s')
-      ]),
-      transition('newRound => noNewRound', [
-        animate('0.5s 1.5s')
-      ])
-    ]),
     trigger('listAnimation', [
       transition('* => *', [
         query(':enter', [
@@ -80,6 +70,7 @@ export class ServerComponent implements OnInit {
       }
 
       if (this.players.length == this.nextMatch.homeVoters.length + this.nextMatch.awayVoters.length) {
+        this.round = this.getStage();
         this.currentMatch = this.nextMatch;
         this.animateVotes();
       }
@@ -162,15 +153,8 @@ export class ServerComponent implements OnInit {
         this.counter++;
       }
 
-      //Decide if there's a new round
-      let teamsLeft = this.category.teams.length;
-      if ((teamsLeft + this.standing.length) % teamsLeft == 0) {
-        this.round = this.getStage();
-        this.newRound = true;
-        this.socket.emit("newRound", this.round);
-      } else {
-        this.playMatch();
-      }
+      this.socket.emit("newRound", this.getStage());
+      this.playMatch();
     }
   }
 
@@ -191,28 +175,18 @@ export class ServerComponent implements OnInit {
 
   getStage(): string {
     let teamsLeft = this.category.teams.length;
-    if (teamsLeft == 2) {
+    if (teamsLeft <= 2) {
       return "Final";
-    } else if (teamsLeft == 4) {
+    } else if (teamsLeft <= 4) {
       return "Semi Final";
-    } else if (teamsLeft == 8) {
+    } else if (teamsLeft <= 8) {
       return "Quarter Final";
-    } else if (teamsLeft == 16) {
+    } else if (teamsLeft <= 16) {
       return "Round Of 16";
-    } else if (teamsLeft == 32) {
+    } else if (teamsLeft <= 32) {
       return "Round of 32";
-    } else if (teamsLeft == 64) {
+    } else if (teamsLeft <= 64) {
       return "Round of 64";
-    }
-  }
-
-  onAnimationEvent(event: AnimationEvent) {
-    if (event.triggerName == "showNewRound" && event.toState == "newRound") {
-      this.newRound = false;
-    } else if (event.triggerName == "showNewRound" && event.toState == "noNewRound") {
-      if (this.category != null) {
-        this.playMatch();
-      }
     }
   }
 }

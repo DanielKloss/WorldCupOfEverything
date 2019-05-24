@@ -56,9 +56,6 @@
   </div>
 </div>
 
-<div [@showNewRound]="newRound ? 'newRound' : 'noNewRound'" (@showNewRound.done)="onAnimationEvent($event)"
-  class="newRound">{{round}}</div>
-
 <div class="overview" *ngIf="showOverview">
   <mat-list>
     <mat-list-item *ngFor="let team of standing">

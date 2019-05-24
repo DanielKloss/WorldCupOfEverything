@@ -25,6 +25,3 @@
 <div *ngIf="home == null && away == null">
   <p class="waitingInstructions">Waiting for game to start</p>
 </div>
-
-<div [@showNewRound]="newRound ? 'newRound' : 'noNewRound'" (@showNewRound.done)="onAnimationEvent($event)"
-  class="newRound">{{round}}</div>

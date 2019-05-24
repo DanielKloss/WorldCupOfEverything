@@ -1,0 +1,132 @@
+{
+    "teams": [
+        {
+            "name": "Wham",
+            "colour": "yellow"
+        },
+        {
+            "name": "Blur",
+            "colour": "blue"
+        },
+        {
+            "name": "Pink Floyd",
+            "colour": "pink"
+        },
+        {
+            "name": "One Direction",
+            "colour": "green"
+        },
+        {
+            "name": "Pet Shop Boys",
+            "colour": "green"
+        },
+        {
+            "name": "The Clash",
+            "colour": "green"
+        },
+        {
+            "name": "Five Star",
+            "colour": "yellow"
+        },
+        {
+            "name": "Coldplay",
+            "colour": "yellow"
+        },
+        {
+            "name": "Iorn Maiden",
+            "colour": "grey"
+        },
+        {
+            "name": "The Beatles",
+            "colour": "red"
+        },
+        {
+            "name": "Pulp",
+            "colour": "orange"
+        },
+        {
+            "name": "The Pretenders",
+            "colour": "blue"
+        },
+        {
+            "name": "The Who",
+            "colour": "grey"
+        },
+        {
+            "name": "Bananarama",
+            "colour": "yellow"
+        },
+        {
+            "name": "Depeche Mode",
+            "colour": "grey"
+        },
+        {
+            "name": "Take That",
+            "colour": "yellow"
+        },
+        {
+            "name": "The Stone Roses",
+            "colour": "grey"
+        },
+        {
+            "name": "Duran Duran",
+            "colour": "purple"
+        },
+        {
+            "name": "The Kinks",
+            "colour": "pink"
+        },
+        {
+            "name": "Sugababes",
+            "colour": "pink"
+        },
+        {
+            "name": "Dire Straits",
+            "colour": "blue"
+        },
+        {
+            "name": "The Rolling Stones",
+            "colour": "grey"
+        },
+        {
+            "name": "Soul II soul",
+            "colour": "orange"
+        },
+        {
+            "name": "Roxy Music",
+            "colour": "red"
+        },
+        {
+            "name": "JLS",
+            "colour": "white"
+        },
+        {
+            "name": "Oasis",
+            "colour": "gold"
+        },
+        {
+            "name": "Radiohead",
+            "colour": "grey"
+        },
+        {
+            "name": "Eurythmics",
+            "colour": "white"
+        },
+        {
+            "name": "Spice Girls",
+            "colour": "pink"
+        },
+        {
+            "name": "The Smiths",
+            "colour": "grey"
+        },
+        {
+            "name": "The Sex Pistols",
+            "colour": "yellow"
+        },
+        {
+            "name": "Arctic Monkeys",
+            "colour": "blue"
+        }
+    ]
+}

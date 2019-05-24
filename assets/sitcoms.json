@@ -1,0 +1,132 @@
+{
+    "teams": [
+        {
+            "name": "Dads Army",
+            "colour": "green"
+        },
+        {
+            "name": "The Young Ones",
+            "colour": "yellow"
+        },
+        {
+            "name": "Red Dwarf",
+            "colour": "red"
+        },
+        {
+            "name": "Outnumbered",
+            "colour": "green"
+        },
+        {
+            "name": "Only Fools and Horses",
+            "colour": "yellow"
+        },
+        {
+            "name": "The Thick of It",
+            "colour": "grey"
+        },
+        {
+            "name": "The IT Crowd",
+            "colour": "white"
+        },
+        {
+            "name": "The Good life",
+            "colour": "yellow"
+        },
+        {
+            "name": "One Foot in the grave",
+            "colour": "grey"
+        },
+        {
+            "name": "The Royle Family",
+            "colour": "purple"
+        },
+        {
+            "name": "Peep Show",
+            "colour": "green"
+        },
+        {
+            "name": "Gavin and Stacey",
+            "colour": "red"
+        },
+        {
+            "name": "Vicar of Dibley",
+            "colour": "white"
+        },
+        {
+            "name": "Allo Allo",
+            "colour": "yellow"
+        },
+        {
+            "name": "Black Books",
+            "colour": "grey"
+        },
+        {
+            "name": "The Inbetweeners",
+            "colour": "blue"
+        },
+        {
+            "name": "Fawlty Towers",
+            "colour": "white"
+        },
+        {
+            "name": "Are you being served",
+            "colour": "white"
+        },
+        {
+            "name": "Absolutel Fabulous",
+            "colour": "pink"
+        },
+        {
+            "name": "Yes Minister",
+            "colour": "grey"
+        },
+        {
+            "name": "Ever Decreasing Circles",
+            "colour": "blue"
+        },
+        {
+            "name": "Porridge",
+            "colour": "gold"
+        },
+        {
+            "name": "Dinner ladies",
+            "colour": "yellow"
+        },
+        {
+            "name": "I'm Alan Partridge",
+            "colour": "red"
+        },
+        {
+            "name": "Father Ted",
+            "colour": "white"
+        },
+        {
+            "name": "Mrs Browns Boys",
+            "colour": "brown"
+        },
+        {
+            "name": "Last of the summer wine",
+            "colour": "purple"
+        },
+        {
+            "name": "Black Adder",
+            "colour": "grey"
+        },
+        {
+            "name": "The Office",
+            "colour": "white"
+        },
+        {
+            "name": "Bread",
+            "colour": "brown"
+        },
+        {
+            "name": "Bottom",
+            "colour": "brown"
+        },
+        {
+            "name": "Spaced",
+            "colour": "green"
+        }
+    ]
+}

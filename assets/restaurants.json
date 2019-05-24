@@ -1,0 +1,132 @@
+{
+    "teams": [
+        {
+            "name": "McDonalds",
+            "colour": "yellow"
+        },
+        {
+            "name": "Cafe Rouge",
+            "colour": "red"
+        },
+        {
+            "name": "Pizza Express",
+            "colour": "purple"
+        },
+        {
+            "name": "Harvester",
+            "colour": "green"
+        },
+        {
+            "name": "Local Indian",
+            "colour": "Purple"
+        },
+        {
+            "name": "Giraffe",
+            "colour": "yellow"
+        },
+        {
+            "name": "Wagamamma",
+            "colour": "white"
+        },
+        {
+            "name": "Ikea Cafe",
+            "colour": "blue"
+        },
+        {
+            "name": "Greasy Spoon",
+            "colour": "red"
+        },
+        {
+            "name": "Dominos",
+            "colour": "blue"
+        },
+        {
+            "name": "Nandos",
+            "colour": "orange"
+        },
+        {
+            "name": "Chiquito",
+            "colour": "orange"
+        },
+        {
+            "name": "All you can eat buffet",
+            "colour": "grey"
+        },
+        {
+            "name": "Carluccios",
+            "colour": "blue"
+        },
+        {
+            "name": "Bella Italia",
+            "colour": "green"
+        },
+        {
+            "name": "Local Chippy",
+            "colour": "yellow"
+        },
+        {
+            "name": "Burger King",
+            "colour": "brown"
+        },
+        {
+            "name": "Pret A Manger",
+            "colour": "red"
+        },
+        {
+            "name": "Zizzi",
+            "colour": "brown"
+        },
+        {
+            "name": "Welcome Break",
+            "colour": "green"
+        },
+        {
+            "name": "KFC",
+            "colour": "red"
+        },
+        {
+            "name": "GBK",
+            "colour": "brown"
+        },
+        {
+            "name": "Hungry Horse",
+            "colour": "white"
+        },
+        {
+            "name": "Pizza Hut",
+            "colour": "red"
+        },
+        {
+            "name": "Yo Sushi",
+            "colour": "white"
+        },
+        {
+            "name": "Greggs",
+            "colour": "blue"
+        },
+        {
+            "name": "Wimpy",
+            "colour": "red"
+        },
+        {
+            "name": "Jamies Italian",
+            "colour": "white"
+        },
+        {
+            "name": "Local Chinese",
+            "colour": "grey"
+        },
+        {
+            "name": "Frankie and Bennys",
+            "colour": "green"
+        },
+        {
+            "name": "Kebab",
+            "colour": "brown"
+        },
+        {
+            "name": "Local Thai",
+            "colour": "green"
+        }
+    ]
+}

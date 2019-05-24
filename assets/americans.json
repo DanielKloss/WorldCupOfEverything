@@ -1,0 +1,132 @@
+{
+    "teams": [
+        {
+            "name": "Oprah Winfrey",
+            "colour": "yellow"
+        },
+        {
+            "name": "Tom Hanks",
+            "colour": "blue"
+        },
+        {
+            "name": "Muhammad Ali",
+            "colour": "pink"
+        },
+        {
+            "name": "Barbra Streisand",
+            "colour": "green"
+        },
+        {
+            "name": "Neil Armstrong",
+            "colour": "grey"
+        },
+        {
+            "name": "Michael Jackson",
+            "colour": "white"
+        },
+        {
+            "name": "Donald Trump",
+            "colour": "orange"
+        },
+        {
+            "name": "Hillary Clinton",
+            "colour": "white"
+        },
+        {
+            "name": "Eleanor Roosevelt",
+            "colour": "red"
+        },
+        {
+            "name": "Tina Fey",
+            "colour": "red"
+        },
+        {
+            "name": "Beyonce",
+            "colour": "pink"
+        },
+        {
+            "name": "The Wright Brothers",
+            "colour": "blue"
+        },
+        {
+            "name": "Susan B Anthony",
+            "colour": "green"
+        },
+        {
+            "name": "Thomas Edison",
+            "colour": "yellow"
+        },
+        {
+            "name": "Abraham Lincoln",
+            "colour": "grey"
+        },
+        {
+            "name": "Will Smith",
+            "colour": "purple"
+        },
+        {
+            "name": "Frank Sinatra",
+            "colour": "grey"
+        },
+        {
+            "name": "Marilyn Monroe",
+            "colour": "red"
+        },
+        {
+            "name": "Barack Obama",
+            "colour": "pink"
+        },
+        {
+            "name": "Michelle Obama",
+            "colour": "pink"
+        },
+        {
+            "name": "Taylor Swift",
+            "colour": "yellow"
+        },
+        {
+            "name": "Benjamin Franklin",
+            "colour": "blue"
+        },
+        {
+            "name": "Rosa Parks",
+            "colour": "yellow"
+        },
+        {
+            "name": "Madonna",
+            "colour": "red"
+        },
+        {
+            "name": "Micheal Jordan",
+            "colour": "red"
+        },
+        {
+            "name": "Martin Luther King",
+            "colour": "gold"
+        },
+        {
+            "name": "John F Kennedy",
+            "colour": "grey"
+        },
+        {
+            "name": "Meryl Streep",
+            "colour": "yellow"
+        },
+        {
+            "name": "George Clooney",
+            "colour": "grey"
+        },
+        {
+            "name": "Charlie Sheen",
+            "colour": "white"
+        },
+        {
+            "name": "Bob Dylan",
+            "colour": "yellow"
+        },
+        {
+            "name": "Henry Ford",
+            "colour": "blue"
+        }
+    ]
+}

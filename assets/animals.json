@@ -1,20 +1,132 @@
 {
     "teams": [
         {
+            "name": "Hamster",
+            "colour": "brown"
+        },
+        {
+            "name": "Tiger",
+            "colour": "orange"
+        },
+        {
+            "name": "Whale",
+            "colour": "blue"
+        },
+        {
+            "name": "Cat",
+            "colour": "orange"
+        },
+        {
+            "name": "Sheep",
+            "colour": "white"
+        },
+        {
+            "name": "Eagle",
+            "colour": "white"
+        },
+        {
+            "name": "Goldfish",
+            "colour": "gold"
+        },
+        {
+            "name": "Meerkat",
+            "colour": "brown"
+        },
+        {
+            "name": "Rabbit",
+            "colour": "white"
+        },
+        {
+            "name": "Gorilla",
+            "colour": "grey"
+        },
+        {
+            "name": "Shark",
+            "colour": "blue"
+        },
+        {
+            "name": "Horse",
+            "colour": "brown"
+        },
+        {
+            "name": "Giraffe",
+            "colour": "yellow"
+        },
+        {
+            "name": "Hedgehog",
+            "colour": "brown"
+        },
+        {
+            "name": "Hippo",
+            "colour": "blue"
+        },
+        {
+            "name": "Budgie",
+            "colour": "yellow"
+        },
+        {
+            "name": "Owl",
+            "colour": "brown"
+        },
+        {
+            "name": "Bear",
+            "colour": "brown"
+        },
+        {
+            "name": "Penguin",
+            "colour": "white"
+        },
+        {
+            "name": "Cow",
+            "colour": "white"
+        },
+        {
+            "name": "Guinea Pig",
+            "colour": "brown"
+        },
+        {
+            "name": "Giant Panda",
+            "colour": "white"
+        },
+        {
             "name": "Dog",
             "colour": "brown"
         },
         {
-            "name": "Cat",
+            "name": "Chicken",
+            "colour": "yellow"
+        },
+        {
+            "name": "Pig",
+            "colour": "pink"
+        },
+        {
+            "name": "Clown fish",
+            "colour": "orange"
+        },
+        {
+            "name": "Rhino",
+            "colour": "grey"
+        },
+        {
+            "name": "Chimp",
+            "colour": "brown"
+        },
+        {
+            "name": "Mouse",
+            "colour": "brown"
+        },
+        {
+            "name": "Python",
+            "colour": "green"
+        },
+        {
+            "name": "Koala",
+            "colour": "grey"
+        },
+        {
+            "name": "Lion",
             "colour": "gold"
-        },
-        {
-            "name": "Snake",
-            "colour": "purple"
-        },
-        {
-            "name": "Bird",
-            "colour": "light blue"
         }
     ]
 }

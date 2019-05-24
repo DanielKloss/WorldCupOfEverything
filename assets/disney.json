@@ -1,0 +1,132 @@
+{
+    "teams": [
+        {
+            "name": "Finding Nemo",
+            "colour": "orange"
+        },
+        {
+            "name": "The Lion King",
+            "colour": "gold"
+        },
+        {
+            "name": "Bambi",
+            "colour": "brown"
+        },
+        {
+            "name": "Zootopia",
+            "colour": "green"
+        },
+        {
+            "name": "The Incredibles",
+            "colour": "red"
+        },
+        {
+            "name": "Ratatouille",
+            "colour": "blue"
+        },
+        {
+            "name": "Dumbo",
+            "colour": "grey"
+        },
+        {
+            "name": "Inside Out",
+            "colour": "yellow"
+        },
+        {
+            "name": "Beauty and the Beast",
+            "colour": "yellow"
+        },
+        {
+            "name": "Brave",
+            "colour": "green"
+        },
+        {
+            "name": "Wall-E",
+            "colour": "grey"
+        },
+        {
+            "name": "Lady and the Tramp",
+            "colour": "grey"
+        },
+        {
+            "name": "Tangled",
+            "colour": "green"
+        },
+        {
+            "name": "Finding Dory",
+            "colour": "blue"
+        },
+        {
+            "name": "Frozen",
+            "colour": "white"
+        },
+        {
+            "name": "Mulan",
+            "colour": "red"
+        },
+        {
+            "name": "Pinocchio",
+            "colour": "brown"
+        },
+        {
+            "name": "Up",
+            "colour": "purple"
+        },
+        {
+            "name": "Toy Story",
+            "colour": "brown"
+        },
+        {
+            "name": "101 Dalmations",
+            "colour": "white"
+        },
+        {
+            "name": "Pocahontas",
+            "colour": "yellow"
+        },
+        {
+            "name": "The Jungle Book",
+            "colour": "green"
+        },
+        {
+            "name": "Monsters Inc",
+            "colour": "purple"
+        },
+        {
+            "name": "Cinderella",
+            "colour": "blue"
+        },
+        {
+            "name": "Moana",
+            "colour": "blue"
+        },
+        {
+            "name": "Snow White",
+            "colour": "white"
+        },
+        {
+            "name": "Toy Story 2",
+            "colour": "brown"
+        },
+        {
+            "name": "Toy Story 3",
+            "colour": "brown"
+        },
+        {
+            "name": "Aladdin",
+            "colour": "purple"
+        },
+        {
+            "name": "The Little Mermain",
+            "colour": "blue"
+        },
+        {
+            "name": "Peter Pan",
+            "colour": "green"
+        },
+        {
+            "name": "Cars",
+            "colour": "red"
+        }
+    ]
+}

@@ -1,0 +1,132 @@
+{
+    "teams": [
+        {
+            "name": "The Muppet Christmas Carol",
+            "colour": "green"
+        },
+        {
+            "name": "Lethal Weapon",
+            "colour": "blue"
+        },
+        {
+            "name": "Batman Returns",
+            "colour": "grey"
+        },
+        {
+            "name": "The Polar Express",
+            "colour": "white"
+        },
+        {
+            "name": "Gremlins",
+            "colour": "green"
+        },
+        {
+            "name": "About a Boy",
+            "colour": "white"
+        },
+        {
+            "name": "The Santa Clause",
+            "colour": "red"
+        },
+        {
+            "name": "Home Alone 2",
+            "colour": "blue"
+        },
+        {
+            "name": "The Nightmare Before Christmas",
+            "colour": "grey"
+        },
+        {
+            "name": "The Snowman",
+            "colour": "white"
+        },
+        {
+            "name": "It's a Wonderful Life",
+            "colour": "yellow"
+        },
+        {
+            "name": "The Holiday",
+            "colour": "blue"
+        },
+        {
+            "name": "White Christmas",
+            "colour": "white"
+        },
+        {
+            "name": "Bad Santa",
+            "colour": "red"
+        },
+        {
+            "name": "Nativity",
+            "colour": "yellow"
+        },
+        {
+            "name": "Elf",
+            "colour": "green"
+        },
+        {
+            "name": "Die Hard",
+            "colour": "grey"
+        },
+        {
+            "name": "Die Hard 2",
+            "colour": "grey"
+        },
+        {
+            "name": "A Christmas Carol",
+            "colour": "white"
+        },
+        {
+            "name": "How the Grinch Stole Christmas",
+            "colour": "green"
+        },
+        {
+            "name": "Ghost Busters 2",
+            "colour": "White"
+        },
+        {
+            "name": "Scrooged",
+            "colour": "grey"
+        },
+        {
+            "name": "Meet me in St Louis",
+            "colour": "yellow"
+        },
+        {
+            "name": "Home Alone",
+            "colour": "blue"
+        },
+        {
+            "name": "Trading Places",
+            "colour": "pink"
+        },
+        {
+            "name": "Arthur Christmas",
+            "colour": "gold"
+        },
+        {
+            "name": "Miracle on 34th Street",
+            "colour": "white"
+        },
+        {
+            "name": "Jingle all the way",
+            "colour": "yellow"
+        },
+        {
+            "name": "The Apartment",
+            "colour": "red"
+        },
+        {
+            "name": "The Bishops Wife",
+            "colour": "grey"
+        },
+        {
+            "name": "The Great Escape",
+            "colour": "green"
+        },
+        {
+            "name": "Love Actually",
+            "colour": "red"
+        }
+    ]
+}

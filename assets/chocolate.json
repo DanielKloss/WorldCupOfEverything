@@ -14,14 +14,14 @@
         },
         {
             "name": "Bounty",
-            "colour": "light blue"
+            "colour": "white"
         },
         {
             "name": "Smarties",
             "colour": "blue"
         },
         {
-            "name": "Fruit & Nut",
+            "name": "Fruit and Nut",
             "colour": "purple"
         },
         {
@@ -46,7 +46,7 @@
         },
         {
             "name": "Milky Way",
-            "colour": "light blue"
+            "colour": "white"
         },
         {
             "name": "Star Bar",
@@ -61,7 +61,7 @@
             "colour": "red"
         },
         {
-            "name": "M&M's",
+            "name": "M and M's",
             "colour": "yellow"
         },
         {
@@ -86,7 +86,7 @@
         },
         {
             "name": "Mars",
-            "colour": "black"
+            "colour": "red"
         },
         {
             "name": "Yorkie",

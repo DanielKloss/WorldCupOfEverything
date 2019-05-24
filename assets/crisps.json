@@ -1,0 +1,132 @@
+{
+    "teams": [
+        {
+            "name": "Wotsits",
+            "colour": "orange"
+        },
+        {
+            "name": "Ready Salted Hula Hoops",
+            "colour": "red"
+        },
+        {
+            "name": "Walkers Cheese and Onion",
+            "colour": "blue"
+        },
+        {
+            "name": "Chipsticks",
+            "colour": "blue"
+        },
+        {
+            "name": "Doritos Chilli Heatwave",
+            "colour": "red"
+        },
+        {
+            "name": "Mini Cheddars",
+            "colour": "yellow"
+        },
+        {
+            "name": "Picked Onion Monster Munch",
+            "colour": "purple"
+        },
+        {
+            "name": "Squares",
+            "colour": "blue"
+        },
+        {
+            "name": "Nice 'n' Spicy Nik Naks",
+            "colour": "orange"
+        },
+        {
+            "name": "Walkers Salt and Vinegar",
+            "colour": "green"
+        },
+        {
+            "name": "Tayto Cheese and Onion",
+            "colour": "blue"
+        },
+        {
+            "name": "Steak McCoys",
+            "colour": "brown"
+        },
+        {
+            "name": "Frazzles",
+            "colour": "orange"
+        },
+        {
+            "name": "Spicy Tomato Wheat Crunchies",
+            "colour": "red"
+        },
+        {
+            "name": "Pom-Bears",
+            "colour": "red"
+        },
+        {
+            "name": "Sour Cream and Chive Pringles",
+            "colour": "green"
+        },
+        {
+            "name": "Discos",
+            "colour": "blue"
+        },
+        {
+            "name": "Walkers Ready Salted",
+            "colour": "red"
+        },
+        {
+            "name": "Skips",
+            "colour": "yellow"
+        },
+        {
+            "name": "Golden Wonder Cheese and Onion",
+            "colour": "gold"
+        },
+        {
+            "name": "Pickled Onion Space Raiders",
+            "colour": "purple"
+        },
+        {
+            "name": "Walkers Smoky Bacon",
+            "colour": "brown"
+        },
+        {
+            "name": "Roast Beef Monster Munch",
+            "colour": "yellow"
+        },
+        {
+            "name": "Walkers Thai Sweet Chilli Sensations",
+            "colour": "red"
+        },
+        {
+            "name": "Quavers",
+            "colour": "yellow"
+        },
+        {
+            "name": "Brannigans Roast Beef and Mustard",
+            "colour": "brown"
+        },
+        {
+            "name": "McCoys Salt and Malt Vinegar",
+            "colour": "green"
+        },
+        {
+            "name": "Walkers Prawn Cocktail",
+            "colour": "pink"
+        },
+        {
+            "name": "Sea Salt and Cruched Black Pepper Kettle Chips",
+            "colour": "grey"
+        },
+        {
+            "name": "Doritos Cool Original",
+            "colour": "blue"
+        },
+        {
+            "name": "Barbeque Popchips",
+            "colour": "brown"
+        },
+        {
+            "name": "Tyrrells Mature Cheddar and Onion",
+            "colour": "yellow"
+        }
+    ]
+}

@@ -29,7 +29,7 @@ import { Team } from '../models/team';
 })
 export class ServerComponent implements OnInit {
 
-  private SERVER_URL = 'http://https://worldcupofeverything.herokuapp.com/';
+  private SERVER_URL = 'https://worldcupofeverything.herokuapp.com/';
   private socket;
 
   categories: string[] = [];

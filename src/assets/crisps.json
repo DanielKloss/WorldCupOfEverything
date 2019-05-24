@@ -2,27 +2,27 @@
     "teams": [
         {
             "name": "Wotsits",
-            "colour": "brown"
+            "colour": "orange"
         },
         {
             "name": "Ready Salted Hula Hoops",
-            "colour": "gold"
+            "colour": "red"
         },
         {
-            "name": "Walkers Cheese & Onion",
-            "colour": "purple"
+            "name": "Walkers Cheese and Onion",
+            "colour": "blue"
         },
         {
             "name": "Chipsticks",
-            "colour": "light blue"
+            "colour": "blue"
         },
         {
             "name": "Doritos Chilli Heatwave",
-            "colour": "brown"
+            "colour": "red"
         },
         {
             "name": "Mini Cheddars",
-            "colour": "gold"
+            "colour": "yellow"
         },
         {
             "name": "Picked Onion Monster Munch",
@@ -30,59 +30,59 @@
         },
         {
             "name": "Squares",
-            "colour": "light blue"
+            "colour": "blue"
         },
         {
             "name": "Nice 'n' Spicy Nik Naks",
-            "colour": "brown"
+            "colour": "orange"
         },
         {
-            "name": "Walkers Salt & Vinegar",
-            "colour": "gold"
+            "name": "Walkers Salt and Vinegar",
+            "colour": "green"
         },
         {
-            "name": "Tayto Cheese & Onion",
-            "colour": "purple"
+            "name": "Tayto Cheese and Onion",
+            "colour": "blue"
         },
         {
             "name": "Steak McCoys",
-            "colour": "light blue"
+            "colour": "brown"
         },
         {
             "name": "Frazzles",
-            "colour": "brown"
+            "colour": "orange"
         },
         {
             "name": "Spicy Tomato Wheat Crunchies",
-            "colour": "gold"
+            "colour": "red"
         },
         {
             "name": "Pom-Bears",
-            "colour": "purple"
+            "colour": "red"
         },
         {
-            "name": "Sour Cream & Chive Pringles",
-            "colour": "light blue"
+            "name": "Sour Cream and Chive Pringles",
+            "colour": "green"
         },
         {
             "name": "Discos",
-            "colour": "brown"
+            "colour": "blue"
         },
         {
-            "name": "WAlkers Ready Salted",
-            "colour": "gold"
+            "name": "Walkers Ready Salted",
+            "colour": "red"
         },
         {
             "name": "Skips",
-            "colour": "purple"
+            "colour": "yellow"
         },
         {
-            "name": "Golden Wonder Cheese & Onion",
-            "colour": "light blue"
+            "name": "Golden Wonder Cheese and Onion",
+            "colour": "gold"
         },
         {
             "name": "Pickled Onion Space Raiders",
-            "colour": "light blue"
+            "colour": "purple"
         },
         {
             "name": "Walkers Smoky Bacon",
@@ -90,43 +90,43 @@
         },
         {
             "name": "Roast Beef Monster Munch",
-            "colour": "gold"
+            "colour": "yellow"
         },
         {
             "name": "Walkers Thai Sweet Chilli Sensations",
-            "colour": "purple"
+            "colour": "red"
         },
         {
             "name": "Quavers",
-            "colour": "light blue"
+            "colour": "yellow"
         },
         {
-            "name": "Brannigans Roast Beef & Mustard",
+            "name": "Brannigans Roast Beef and Mustard",
             "colour": "brown"
         },
         {
-            "name": "McCoys Salt & Malt Vinegar",
-            "colour": "gold"
+            "name": "McCoys Salt and Malt Vinegar",
+            "colour": "green"
         },
         {
             "name": "Walkers Prawn Cocktail",
-            "colour": "purple"
+            "colour": "pink"
         },
         {
-            "name": "Sea Salt & Cruched Black Peppercorns Kettle Chips",
-            "colour": "gold"
+            "name": "Sea Salt and Cruched Black Pepper Kettle Chips",
+            "colour": "grey"
         },
         {
             "name": "Doritos Cool Original",
-            "colour": "purple"
+            "colour": "blue"
         },
         {
             "name": "Barbeque Popchips",
-            "colour": "gold"
+            "colour": "brown"
         },
         {
             "name": "Tyrrells Mature Cheddar and Onion",
-            "colour": "purple"
+            "colour": "yellow"
         }
     ]
 }

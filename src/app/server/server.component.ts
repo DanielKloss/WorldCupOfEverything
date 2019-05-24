@@ -8,7 +8,6 @@ import { Match } from '../models/match';
 import { trigger, state, transition, animate, style, AnimationEvent, query, stagger } from '@angular/animations';
 import { Vote } from '../models/vote';
 import { Team } from '../models/team';
-import { Stage } from '../models/stage';
 
 @Component({
   selector: 'app-server',
@@ -40,7 +39,7 @@ import { Stage } from '../models/stage';
 })
 export class ServerComponent implements OnInit {
 
-  private SERVER_URL = 'http://192.168.1.65:5000';
+  private SERVER_URL = 'http://localhost:5000';
   private socket;
 
   categories: string[] = [];
@@ -48,7 +47,7 @@ export class ServerComponent implements OnInit {
   currentMatch: Match;
   nextMatch: Match;
   newRound: boolean = false;
-  round: Stage;
+  round: string;
   standing: Team[] = [];
   counter: number = 0;
   players: string[] = []
@@ -149,7 +148,7 @@ export class ServerComponent implements OnInit {
 
     //Decide if there's a winner
     if (this.category.teams.length == 1) {
-      this.category.teams[0].stage = Stage.Winner;
+      this.category.teams[0].stage = "Winner";
       this.category.teams[0].knockedOutBy = new Team("no one", "");
       this.standing.push(this.category.teams[0]);
       this.socket.emit("matchOver", this.standing);
@@ -182,6 +181,7 @@ export class ServerComponent implements OnInit {
     this.shuffleCategoryTeams();
 
     this.round = this.getStage();
+    this.socket.emit("newRound", this.round);
 
     this.showSetup = false;
     this.showMatch = true;
@@ -189,20 +189,20 @@ export class ServerComponent implements OnInit {
     this.playMatch();
   }
 
-  getStage(): Stage {
+  getStage(): string {
     let teamsLeft = this.category.teams.length;
     if (teamsLeft == 2) {
-      return Stage.Final;
+      return "Final";
     } else if (teamsLeft == 4) {
-      return Stage["Semi Final"];
+      return "Semi Final";
     } else if (teamsLeft == 8) {
-      return Stage["Quarter Final"];
+      return "Quarter Final";
     } else if (teamsLeft == 16) {
-      return Stage["Round Of 16"];
+      return "Round Of 16";
     } else if (teamsLeft == 32) {
-      return Stage["Round of 32"];
+      return "Round of 32";
     } else if (teamsLeft == 64) {
-      return Stage["Round of 64"];
+      return "Round of 64";
     }
   }
 

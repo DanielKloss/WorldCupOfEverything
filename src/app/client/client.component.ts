@@ -14,12 +14,10 @@ import { Vote } from '../models/vote';
   animations: [
     trigger('voteFlyIn', [
       state('out', style({
-        opacity: 0.5,
-        width: '0%'
+        height: '0%'
       })),
       state('in', style({
-        opacity: 1,
-        width: '50%'
+        height: '100%'
       })),
       transition('out => in', [
         animate('1s')
@@ -50,7 +48,7 @@ export class ClientComponent implements OnInit {
   home: Team;
   away: Team;
 
-  private SERVER_URL = 'http://192.168.1.65:5000';
+  private SERVER_URL = 'http://localhost:5000';
   private socket;
 
   constructor(private route: ActivatedRoute) { }

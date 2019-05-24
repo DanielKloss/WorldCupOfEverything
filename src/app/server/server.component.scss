@@ -28,14 +28,14 @@
 
 .teamTitle{
     font-family: 'Arcade Classic';
-    font-size: 7vw;
+    font-size: 3vw;
     text-align: center;
     margin-top: 1vw;
 }
 
 .listTitle{
     font-family: 'Karmatic Arcade';
-    font-size: 5vw;
+    font-size: 3vw;
     color:white;
     text-align: center;
 }
@@ -51,7 +51,7 @@
 
 .categoryInstructions{
     font-family: 'Arcade Classic';
-    font-size: 3vw;
+    font-size: 2vw;
     color:white;
     text-align: center;
 }
@@ -61,7 +61,7 @@
     color: #1f363d;
     background-color: white;
     margin: 2vw auto;
-    font-size: 4vw;
+    font-size: 3vw;
     font-family: 'arcade classic';
     width: 25vw;
     height: 3vw;
@@ -73,6 +73,11 @@
     position: fixed;
     font-size: xx-large;
     background-color: red;
+}
+
+.scrollable {
+    height: 40%;
+    overflow-y: scroll;
 }
 
 .voter{

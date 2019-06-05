@@ -12,7 +12,7 @@
       </div>
       <div class="right background-secondary">
         <p class="listTitle">CATEGORIES</p>
-        <p class="categoryInstructions">Once all players are in, choose a category</p>
+        <p class="categoryInstructions">ONCE ALL PLAYERS ARE IN, CHOOSE A CATEGORY</p>
         <div class="scrollable">
           <button mat-button class="categoryButton" (click)="startWorldCup(category)"
             *ngFor="let category of categories">{{category}}</button>
@@ -59,7 +59,7 @@
 <div class="overview" *ngIf="showOverview">
   <mat-list>
     <mat-list-item *ngFor="let team of standing">
-      {{team.name}} - {{team.stage}} - Knocked Out by {{team.knockedOutBy?.name}}
+      {{team.name}} - {{team.stage}} - KNOCKED OUT BY {{team.knockedOutBy?.name}}
     </mat-list-item>
   </mat-list>
 </div>

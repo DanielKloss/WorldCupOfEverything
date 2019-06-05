@@ -61,10 +61,9 @@ export class ClientComponent implements OnInit {
     });
   }
 
-  castVote(evt: MouseEvent, vote: number) {
+  castVote(vote: number) {
     this.vote = new Vote(this.username, vote);
     this.newVote = false;
-    evt.StopPropagation();
   }
 
   onAnimationEvent(event: AnimationEvent) {

@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import * as socketIo from 'socket.io-client';
 import { ActivatedRoute } from '@angular/router';
-import { Team } from '../models/team';
 import { trigger, state, style, transition, animate, keyframes, animation, AnimationEvent } from '@angular/animations';
+import { ServerService } from '../services/server.service';
+import { Team } from '../models/team';
 import { Match } from '../models/match';
 import { Vote } from '../models/vote';
 
@@ -38,12 +39,13 @@ export class ClientComponent implements OnInit {
   home: Team;
   away: Team;
 
-  private SERVER_URL = 'https://worldcupofeverything.herokuapp.com/';
+  private SERVER_URL;
   private socket;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private serverService: ServerService) { }
 
   ngOnInit() {
+    this.SERVER_URL = this.serverService.getUrl();
     this.socket = socketIo(this.SERVER_URL);
 
     this.username = this.route.snapshot.paramMap.get('username').toUpperCase();

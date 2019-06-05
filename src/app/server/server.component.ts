@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import * as socketIo from 'socket.io-client';
 
 import { CategoriesService } from '../services/categories.service'
+import { ServerService } from '../services/server.service'
 import { Category } from '../models/category';
 import { Match } from '../models/match';
 import { trigger, state, transition, animate, style, AnimationEvent, query, stagger } from '@angular/animations';
@@ -29,7 +30,7 @@ import { Team } from '../models/team';
 })
 export class ServerComponent implements OnInit {
 
-  private SERVER_URL = 'https://worldcupofeverything.herokuapp.com/';
+  private SERVER_URL;
   private socket;
 
   categories: string[] = [];
@@ -49,9 +50,11 @@ export class ServerComponent implements OnInit {
   showMatch: boolean;
   showOverview: boolean;
 
-  constructor(private categoryService: CategoriesService) { }
+  constructor(private categoryService: CategoriesService, private serverService: ServerService) { }
 
   ngOnInit() {
+    this.SERVER_URL = this.serverService.getUrl();
+
     this.showSetup = true;
 
     this.socket = socketIo(this.SERVER_URL);

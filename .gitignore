@@ -47,4 +47,6 @@ socket server/node_modules/*
 *.key
 *.crt
 
+server.service.ts
+
 # End of https://www.gitignore.io/api/angular,visualstudiocode

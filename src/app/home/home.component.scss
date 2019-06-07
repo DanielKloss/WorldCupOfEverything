@@ -20,17 +20,29 @@
     margin: 0 auto;
 }
 
-::ng-deep .mat-focused .mat-form-field-label {
+.serverForm > button {
+    color: white;
+    font-family: 'Arcade Classic';
+}
+
+.playerEntry {
+margin-right: 10px;
+}
+
+::ng-deep.mat-form-field-label {
     /*change color of label*/
     color: white !important;
+    font-family: 'Arcade Classic' !important;
 }
 
 ::ng-deep.mat-form-field-underline {
     /*change color of underline*/
+    font-family: 'Arcade Classic';
     background-color: white !important;
 } 
 
 ::ng-deep.mat-form-field-ripple {
     /*change color of underline when focused*/
-    background-color: white !important;;
+    font-family: 'Arcade Classic';
+    background-color: white !important;
 }

@@ -42,7 +42,9 @@ export class ClientComponent implements OnInit {
   private SERVER_URL;
   private socket;
 
-  constructor(private route: ActivatedRoute, private serverService: ServerService) { }
+  constructor(private route: ActivatedRoute, private serverService: ServerService) {
+
+  }
 
   ngOnInit() {
     this.SERVER_URL = this.serverService.getUrl();
@@ -61,6 +63,10 @@ export class ClientComponent implements OnInit {
     this.socket.on('newRound', (round: string) => {
       this.round = round;
     });
+  }
+
+  ngOnDestroy() {
+    this.socket.disconnect();
   }
 
   castVote(vote: number) {

@@ -96,6 +96,12 @@ export class ServerComponent implements OnInit {
     }
   }
 
+  convertTeamsToUpperCase() {
+    for (let i = 0; i < this.category.teams.length - 1; i++) {
+      this.category.teams[i].name = this.category.teams[i].name.toUpperCase();
+    }
+  }
+
   playMatch() {
     let homeIndex = this.counter;
     let awayIndex = this.counter + 1;
@@ -166,6 +172,7 @@ export class ServerComponent implements OnInit {
     this.category.teams = await this.categoryService.getCategoryTeams(categoryName.toLowerCase()).toPromise();
 
     this.shuffleCategoryTeams();
+    this.convertTeamsToUpperCase();
 
     this.round = this.getStage();
     this.socket.emit("newRound", this.round);

@@ -41,12 +41,13 @@
 }
 
 .players{
-    margin: 2vw 10vw;
-    padding-top: 1vw;
-    padding-bottom: 1vw;
-    font-family: 'Arcade Classic';
-    font-size: 4vw;
-    width: -webkit-fill-available;
+    display: block;
+    color: #1f363d;
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    font-size: 3vw;
+    font-family: 'arcade classic';
 }
 
 .categoryInstructions{
@@ -54,30 +55,25 @@
     font-size: 2vw;
     color:white;
     text-align: center;
+    padding: 0px 10px;
 }
 
 .categoryButton{
     display: block;
     color: #1f363d;
     background-color: white;
-    margin: 2vw auto;
+    margin: 10px;
+    padding: 10px;
     font-size: 3vw;
     font-family: 'arcade classic';
-    width: 25vw;
-    height: 3vw;
 }
 
-.newRound{
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    font-size: xx-large;
-    background-color: red;
-}
-
-.scrollable {
-    height: 40%;
-    overflow-y: scroll;
+.flex {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-content: center;
+   padding: 10px;
 }
 
 .voter{

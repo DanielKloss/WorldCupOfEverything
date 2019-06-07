@@ -1,19 +1,16 @@
 <div class="setup" *ngIf="showSetup">
-  <div class="background-primary">
-    <div class="title">Setup</div>
-  </div>
   <div class="split">
     <div class="splitContianer">
       <div class="left background-tertary">
         <p class="listTitle">PLAYERS</p>
-        <div class="scrollable">
+        <div class="flex">
           <mat-card *ngFor="let player of players" class="players">{{player}}</mat-card>
         </div>
       </div>
       <div class="right background-secondary">
         <p class="listTitle">CATEGORIES</p>
         <p class="categoryInstructions">ONCE ALL PLAYERS ARE IN, CHOOSE A CATEGORY</p>
-        <div class="scrollable">
+        <div class="flex">
           <button mat-button class="categoryButton" (click)="startWorldCup(category)"
             *ngFor="let category of categories">{{category}}</button>
         </div>

@@ -54,9 +54,14 @@
 </div>
 
 <div class="overview" *ngIf="showOverview">
-  <mat-list>
-    <mat-list-item *ngFor="let team of standing">
-      {{team.name}} - {{team.stage}} - KNOCKED OUT BY {{team.knockedOutBy?.name}}
+  <div class="background-primary">
+    <div class="title">Winner - {{standing[standing.length-1].name}}</div>
+  </div>
+  <mat-list class="background-secondary standingsList">
+    <mat-list-item *ngFor="let team of standing" class="standing">
+      <p [style.color]="team.colour">{{team.name}}</p>
+      <p class="space">- {{team.stage}} - KNOCKED OUT BY</p>
+      <p [style.color]="team.knockedOutBy?.colour">{{team.knockedOutBy?.name}}</p>
     </mat-list-item>
   </mat-list>
 </div>

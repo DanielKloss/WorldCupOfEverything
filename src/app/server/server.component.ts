@@ -97,8 +97,9 @@ export class ServerComponent implements OnInit {
   }
 
   convertTeamsToUpperCase() {
-    for (let i = 0; i < this.category.teams.length - 1; i++) {
+    for (let i = 0; i < this.category.teams.length; i++) {
       this.category.teams[i].name = this.category.teams[i].name.toUpperCase();
+      console.log(this.category.teams[i].name);
     }
   }
 
@@ -186,17 +187,17 @@ export class ServerComponent implements OnInit {
   getStage(): string {
     let teamsLeft = this.category.teams.length;
     if (teamsLeft <= 2) {
-      return "Final";
+      return "FINAL";
     } else if (teamsLeft <= 4) {
-      return "Semi Final";
+      return "SEMI FINAL";
     } else if (teamsLeft <= 8) {
-      return "Quarter Final";
+      return "QUARTER FINAL";
     } else if (teamsLeft <= 16) {
-      return "Round Of 16";
+      return "ROUND OF 16";
     } else if (teamsLeft <= 32) {
-      return "Round of 32";
+      return "ROUND OF 32";
     } else if (teamsLeft <= 64) {
-      return "Round of 64";
+      return "ROUND OF 64";
     }
   }
 }

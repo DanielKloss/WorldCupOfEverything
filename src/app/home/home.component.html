@@ -7,6 +7,9 @@
         <mat-form-field class="playerEntry">
             <input matInput placeholder="Enter your name" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
         </mat-form-field>
+        <mat-form-field class="playerEntry">
+            <input matInput placeholder="Enter your game number" [(ngModel)]="roomNumber" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
         <button mat-fab color="primary" [routerLink]="['/client', username]">
             <mat-icon>arrow_forward</mat-icon>
         </button>

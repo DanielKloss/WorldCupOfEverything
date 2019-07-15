@@ -35,6 +35,7 @@ export class ClientComponent implements OnInit {
   newRound: boolean;
   round: string;
   username: string;
+  roomNumber: string;
   vote: Vote;
   home: Team;
   away: Team;
@@ -51,8 +52,9 @@ export class ClientComponent implements OnInit {
     this.socket = socketIo(this.SERVER_URL);
 
     this.username = this.route.snapshot.paramMap.get('username').toUpperCase();
+    this.roomNumber = this.route.snapshot.paramMap.get('roomNumber');
 
-    this.socket.emit("username", this.username);
+    this.socket.emit("username", this.username, this.roomNumber);
 
     this.socket.on('playMatch', (match: Match) => {
       this.newVote = true;
@@ -76,7 +78,7 @@ export class ClientComponent implements OnInit {
 
   onAnimationEvent(event: AnimationEvent) {
     if (event.triggerName == "voteFlyIn" && event.toState == "out") {
-      this.socket.emit("playerVote", this.vote);
+      this.socket.emit("playerVote", this.vote, this.roomNumber);
     }
   }
 }

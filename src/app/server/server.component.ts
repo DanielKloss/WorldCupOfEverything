@@ -33,6 +33,7 @@ export class ServerComponent implements OnInit {
   private SERVER_URL;
   private socket;
 
+  roomNumber: string;
   categories: string[] = [];
   category: Category;
   currentMatch: Match;
@@ -60,6 +61,10 @@ export class ServerComponent implements OnInit {
     this.socket = socketIo(this.SERVER_URL);
     this.socket.emit("serverJoin")
     this.getCategories();
+
+    this.socket.on('roomNumber', (roomNumber: string) => {
+      this.roomNumber = roomNumber;
+    })
 
     this.socket.on('userJoined', (username: string) => {
       this.players.push(username);
@@ -108,7 +113,7 @@ export class ServerComponent implements OnInit {
     let awayIndex = this.counter + 1;
     this.nextMatch = new Match(this.category.teams[homeIndex], this.category.teams[awayIndex]);
 
-    this.socket.emit("playMatch", { home: this.category.teams[homeIndex], away: this.category.teams[awayIndex] })
+    this.socket.emit("playMatch", { home: this.category.teams[homeIndex], away: this.category.teams[awayIndex] }, this.roomNumber)
   }
 
   async animateVotes() {
@@ -152,7 +157,7 @@ export class ServerComponent implements OnInit {
       this.category.teams[0].stage = "Winner";
       this.category.teams[0].knockedOutBy = new Team("no one", "");
       this.standing.push(this.category.teams[0]);
-      this.socket.emit("matchOver", this.standing);
+      this.socket.emit("matchOver", this.standing, this.roomNumber);
       this.showSetup = false;
       this.showMatch = false;
       this.showOverview = true;
@@ -163,7 +168,7 @@ export class ServerComponent implements OnInit {
         this.counter++;
       }
 
-      this.socket.emit("newRound", this.getStage());
+      this.socket.emit("newRound", this.getStage(), this.roomNumber);
       this.playMatch();
     }
   }
@@ -176,7 +181,7 @@ export class ServerComponent implements OnInit {
     this.convertTeamsToUpperCase();
 
     this.round = this.getStage();
-    this.socket.emit("newRound", this.round);
+    this.socket.emit("newRound", this.round, this.roomNumber);
 
     this.showSetup = false;
     this.showMatch = true;

@@ -43,9 +43,7 @@ export class ClientComponent implements OnInit {
   private SERVER_URL;
   private socket;
 
-  constructor(private route: ActivatedRoute, private serverService: ServerService) {
-
-  }
+  constructor(private route: ActivatedRoute, private serverService: ServerService) { }
 
   ngOnInit() {
     this.SERVER_URL = this.serverService.getUrl();
@@ -53,7 +51,7 @@ export class ClientComponent implements OnInit {
 
     this.username = this.route.snapshot.paramMap.get('username').toUpperCase();
     this.roomNumber = this.route.snapshot.paramMap.get('roomNumber');
-
+    console.log(this.roomNumber);
     this.socket.emit("username", this.username, this.roomNumber);
 
     this.socket.on('playMatch', (match: Match) => {

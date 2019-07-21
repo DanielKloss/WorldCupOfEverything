@@ -6,10 +6,10 @@
   <div class="splitContianer">
     <div [@voteFlyIn]="newVote ? 'in' : 'out'" (@voteFlyIn.done)="onAnimationEvent($event)" class="left"
       [style.background-color]="home?.colour">
-      <button mat-button class="votingButton" (click)="castVote(0)" ng-disbaled="clicked">{{home?.name}}</button>
+      <button mat-button class="votingButton" (click)="castVote(0)">{{home?.name}}</button>
     </div>
     <div [@voteFlyIn]="newVote ? 'in' : 'out'" class="right" [style.background-color]="away?.colour">
-      <button mat-button class="votingButton" (click)="castVote(1)" ng-disbaled="clicked">{{away?.name}}</button>
+      <button mat-button class="votingButton" (click)="castVote(1)">{{away?.name}}</button>
     </div>
   </div>
 </div>

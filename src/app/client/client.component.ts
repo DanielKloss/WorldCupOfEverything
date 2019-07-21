@@ -39,16 +39,12 @@ export class ClientComponent implements OnInit {
   home: Team;
   away: Team;
 
-  clicked: boolean;
-
   private SERVER_URL;
   private socket;
 
   constructor(private route: ActivatedRoute, private serverService: ServerService) { }
 
   ngOnInit() {
-    this.clicked = false;
-
     this.SERVER_URL = this.serverService.getUrl();
     this.socket = socketIo(this.SERVER_URL);
 
@@ -72,7 +68,6 @@ export class ClientComponent implements OnInit {
   }
 
   castVote(vote: number) {
-    this.clicked = true;
     this.vote = new Vote(this.username, vote);
     this.newVote = false;
   }
@@ -80,7 +75,6 @@ export class ClientComponent implements OnInit {
   onAnimationEvent(event: AnimationEvent) {
     if (event.triggerName == "voteFlyIn" && event.toState == "out") {
       this.socket.emit("playerVote", this.vote, this.roomNumber);
-      this.clicked = false;
     }
   }
 }

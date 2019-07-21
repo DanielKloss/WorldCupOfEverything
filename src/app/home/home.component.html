@@ -8,12 +8,12 @@
             <input matInput placeholder="Enter your name" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
         </mat-form-field>
         <mat-form-field class="playerEntry">
-            <input matInput placeholder="Game number" [(ngModel)]="roomNumber"
-                [ngModelOptions]="{standalone: true}">
+            <input matInput placeholder="Game number" [(ngModel)]="roomNumber" [ngModelOptions]="{standalone: true}">
         </mat-form-field>
-        <button mat-fab color="primary" [routerLink]="['/client', username, roomNumber]">
+        <button mat-fab color="primary" (click)="joinRoom()">
             <mat-icon>arrow_forward</mat-icon>
         </button>
+        <label>{{errorMessage}}</label>
     </form>
     <div class="serverForm">
         <button mat-button routerLink="/server">click here to start a server</button>

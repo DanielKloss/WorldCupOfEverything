@@ -30,7 +30,6 @@ import { Vote } from '../models/vote';
   ]
 })
 export class ClientComponent implements OnInit {
-
   newVote: boolean;
   newRound: boolean;
   round: string;
@@ -51,7 +50,6 @@ export class ClientComponent implements OnInit {
 
     this.username = this.route.snapshot.paramMap.get('username').toUpperCase();
     this.roomNumber = this.route.snapshot.paramMap.get('roomNumber');
-    console.log(this.roomNumber);
     this.socket.emit("username", this.username, this.roomNumber);
 
     this.socket.on('playMatch', (match: Match) => {

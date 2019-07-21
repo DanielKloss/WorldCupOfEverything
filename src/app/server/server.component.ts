@@ -155,7 +155,7 @@ export class ServerComponent implements OnInit {
 
     //Decide if there's a winner
     if (this.category.teams.length == 1) {
-      this.category.teams[0].stage = "Winner";
+      this.category.teams[0].stage = "WINNER";
       this.category.teams[0].knockedOutBy = new Team("no one", "");
       this.standing.push(this.category.teams[0]);
       this.socket.emit("matchOver", this.standing, this.roomNumber);

@@ -1,50 +1,50 @@
+.playButton{
+    display: block;
+    width: 70%;
+    padding: 20px;
+    margin: auto;
+    font-family: 'Karmatic Arcade';
+    font-size: calc((.4em + 1vmin) + (.4em + 1vmax));
+}
+
 .playerEntry {
-    margin: 0;
-    height: 100%;
+    width: 80%;
+    font-family: 'Arcade Classic' !important;
+    font-size: calc((.4em + 1vmin) + (.4em + 1vmax));
 }
 
 .playerForm{
     text-align:center;
-    color:#FFFFFF;
-    margin: 0;
-    padding-top: 40px;
-    display: flex;
-    flex-direction: column;
+    padding-top: 30px;
+    min-height: 100%;
 }
 
-.serverForm{
-    text-align:center;
-    color:#1F363D;
-    position: fixed;
-    left: 50%;
-    bottom: 20px;
-    transform: translate(-50%, -50%);
-    margin: 0 auto;
-}
-
-.serverForm > button {
-    color: white;
+.serverButton{
+    margin-top: 30px;
     font-family: 'Arcade Classic';
+    font-size: calc((.4em + 0.5vmin) + (.4em + 0.5vmax));
 }
 
-.playerEntry {
-margin-right: 10px;
+.errorMessages{
+    margin: 30px 20px;
+    font-family: 'Arcade Classic' !important;
+    font-size: calc((.4em + 1vmin) + (.4em + 1vmax));
 }
 
 ::ng-deep.mat-form-field-label {
     /*change color of label*/
-    color: white !important;
+    color: black !important;
     font-family: 'Arcade Classic' !important;
 }
 
 ::ng-deep.mat-form-field-underline {
     /*change color of underline*/
     font-family: 'Arcade Classic';
-    background-color: white !important;
+    background-color: black !important;
 } 
 
 ::ng-deep.mat-form-field-ripple {
     /*change color of underline when focused*/
     font-family: 'Arcade Classic';
-    background-color: white !important;
+    background-color: black !important;
 }

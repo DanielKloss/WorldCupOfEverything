@@ -63,7 +63,6 @@ export class ServerComponent implements OnInit {
     this.getCategories();
 
     this.socket.on('roomNumber', (roomNumber: string) => {
-      console.log("storing room number");
       this.roomNumber = roomNumber;
     })
 
@@ -105,7 +104,6 @@ export class ServerComponent implements OnInit {
   convertTeamsToUpperCase() {
     for (let i = 0; i < this.category.teams.length; i++) {
       this.category.teams[i].name = this.category.teams[i].name.toUpperCase();
-      console.log(this.category.teams[i].name);
     }
   }
 
@@ -182,7 +180,6 @@ export class ServerComponent implements OnInit {
     this.convertTeamsToUpperCase();
 
     this.round = this.getStage();
-    console.log(this.roomNumber);
     this.socket.emit("newRound", this.round, this.roomNumber);
 
     this.showSetup = false;

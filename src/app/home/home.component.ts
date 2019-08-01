@@ -28,14 +28,14 @@ export class HomeComponent implements OnInit {
       if (success) {
         this.router.navigate(['/client', this.username, this.roomNumber])
       } else {
-        this.errorMessage = "Incorrect room number";
+        this.errorMessage = "INCORRECT ROOM NUMBER";
       }
     });
   }
 
   joinRoom() {
     if (this.username == undefined || this.username.length < 1) {
-      this.errorMessage = "You must enter a username";
+      this.errorMessage = "YOU MUST ENTER A USERNAME";
     } else {
       this.errorMessage = "";
       this.socket.emit('checkRoom', this.roomNumber);

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import * as socketIo from 'socket.io-client';
+import 'simplebar';
 
 import { CategoriesService } from '../services/categories.service'
 import { ServerService } from '../services/server.service'

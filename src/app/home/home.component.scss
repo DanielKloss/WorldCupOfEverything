@@ -1,3 +1,9 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .playButton{
     display: block;
     width: 70%;
@@ -9,14 +15,14 @@
 
 .playerEntry {
     width: 80%;
-    font-family: 'Arcade Classic' !important;
+    font-family: 'Arcade Classic';
     font-size: calc((.4em + 1vmin) + (.4em + 1vmax));
 }
 
 .playerForm{
     text-align:center;
     padding-top: 30px;
-    min-height: 100%;
+    flex: 1;
 }
 
 .serverButton{
@@ -27,7 +33,7 @@
 
 .errorMessages{
     margin: 30px 20px;
-    font-family: 'Arcade Classic' !important;
+    font-family: 'Arcade Classic';
     font-size: calc((.4em + 1vmin) + (.4em + 1vmax));
 }
 
@@ -39,12 +45,12 @@
 
 ::ng-deep.mat-form-field-underline {
     /*change color of underline*/
-    font-family: 'Arcade Classic';
+    font-family: 'Arcade Classic' !important;
     background-color: black !important;
 } 
 
 ::ng-deep.mat-form-field-ripple {
     /*change color of underline when focused*/
-    font-family: 'Arcade Classic';
+    font-family: 'Arcade Classic' !important;
     background-color: black !important;
 }

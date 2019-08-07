@@ -69,17 +69,6 @@
     margin-top: calc((.4em + 1vmin) + (.4em + 1vmax));
 }
 
-.overview{
-    width: 100%;
-    height: 100%;
-}
-
 .standing {
-    margin: 40px 0px;
-    font-size: 3vw;
-    font-family: 'arcade classic';
-}
-
-.space {
-    margin: 0px 20px;
+    display: inline;
 }

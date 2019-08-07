@@ -39,15 +39,15 @@
   </div>
 </div>
 
-<div class="overview" *ngIf="showOverview">
+<div class="columnContainer" *ngIf="showOverview">
   <div class="background-primary">
     <div class="title">Winner - {{standing[standing.length-1].name}}</div>
   </div>
-  <mat-list class="background-secondary standingsList">
-    <mat-list-item *ngFor="let team of standing" class="standing">
-      <p [style.color]="team.colour">{{team.name}}</p>
-      <p class="space">- {{team.stage}} - KNOCKED OUT BY</p>
-      <p [style.color]="team.knockedOutBy?.colour">{{team.knockedOutBy?.name}}</p>
-    </mat-list-item>
-  </mat-list>
+  <div data-simplebar class="background-secondary cardContainer">
+    <mat-card *ngFor="let team of standing" class="card">
+      <p [style.color]="team.colour" class="standing">{{team.name}}</p>
+      <p class="standing"> - {{team.stage}} - KNOCKED OUT BY </p>
+      <p [style.color]="team.knockedOutBy?.colour" class="standing">{{team.knockedOutBy?.name}}</p>
+    </mat-card>
+  </div>
 </div>

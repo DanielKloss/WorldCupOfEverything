@@ -51,6 +51,7 @@ export class ServerComponent implements OnInit {
   showSetup: boolean;
   showMatch: boolean;
   showOverview: boolean;
+  finishButton: boolean;
 
   constructor(private categoryService: CategoriesService, private serverService: ServerService) { }
 
@@ -154,13 +155,7 @@ export class ServerComponent implements OnInit {
 
     //Decide if there's a winner
     if (this.category.teams.length == 1) {
-      this.category.teams[0].stage = "WINNER";
-      this.category.teams[0].knockedOutBy = new Team("no one", "");
-      this.standing.push(this.category.teams[0]);
-      this.socket.emit("matchOver", this.standing, this.roomNumber);
-      this.showSetup = false;
-      this.showMatch = false;
-      this.showOverview = true;
+      this.finishButton = true;
     } else {
       if (this.counter >= this.category.teams.length - 1) {
         this.counter = 0;
@@ -171,6 +166,16 @@ export class ServerComponent implements OnInit {
       this.socket.emit("newRound", this.getStage(), this.roomNumber);
       this.playMatch();
     }
+  }
+
+  showFinalResult() {
+    this.category.teams[0].stage = "WINNER";
+    this.category.teams[0].knockedOutBy = new Team("no one", "");
+    this.standing.push(this.category.teams[0]);
+    this.socket.emit("matchOver", this.standing, this.roomNumber);
+    this.showSetup = false;
+    this.showMatch = false;
+    this.showOverview = true;
   }
 
   async startWorldCup(categoryName: string) {

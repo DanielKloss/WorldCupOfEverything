@@ -38,10 +38,22 @@
     font-family: 'arcade classic';
 }
 
-.setup {
+.rowContainer {
     display: flex; 
     flex-direction: row;
     height: 100%;
+}
+
+.columnContainer {
+    display: flex; 
+    flex-direction: column;
+    height: 100%;
+}
+
+.columns {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
 }
 
 .column {
@@ -52,17 +64,9 @@
 
 .teamTitle{
     font-family: 'Arcade Classic';
-    font-size: 3vw;
+    font-size: calc((.4em + 2vmin) + (.4em + 2vmax));
     text-align: center;
-    margin-top: 1vw;
-}
-
-
-
-.voter{
-    width: 100px;
-    height: 50px;
-    margin: 5px;
+    margin-top: calc((.4em + 1vmin) + (.4em + 1vmax));
 }
 
 .overview{

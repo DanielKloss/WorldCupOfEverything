@@ -1,4 +1,4 @@
-<div class="setup" *ngIf="showSetup">
+<div class="rowContainer" *ngIf="showSetup">
   <div class="column background-primary">
     <p class="listTitle">PLAYERS</p>
     <p class="roomNumber">ROOM NUMBER - {{roomNumber}}</p>
@@ -17,35 +17,23 @@
   </div>
 </div>
 
-<div class="match" *ngIf="showMatch">
-  <div class="background-primary">
-    <div class="title">{{round}}</div>
-  </div>
-  <div class="split">
-    <div class="splitContainer">
-      <div class="left background-tertary">
-        <p class="teamTitle">
-          {{currentMatch?.home.name}}
-        </p>
-        <mat-grid-list cols="1" rowHeight="6:1" [@listAnimation]="homeVotersAnimation">
-          <mat-grid-tile *ngFor="let player of homeVotersAnimation">
-            <mat-card class="players">
-              {{player}}
-            </mat-card>
-          </mat-grid-tile>
-        </mat-grid-list>
+<div class="columnContainer" *ngIf="showMatch">
+  <p class="title background-primary">{{round}}</p>
+  <div class="columns">
+    <div class="column" [style.background-color]="currentMatch?.home.colour">
+      <p class="teamTitle">
+        {{currentMatch?.home.name}}
+      </p>
+      <div data-simplebar class="cardContainer" [@listAnimation]="homeVotersAnimation">
+        <mat-card *ngFor="let player of homeVotersAnimation" class="card">{{player}}</mat-card>
       </div>
-      <div class="right background-secondary">
-        <p class="teamTitle">
-          {{currentMatch?.away.name}}
-        </p>
-        <mat-grid-list cols="1" rowHeight="6:1" [@listAnimation]="awayVotersAnimation">
-          <mat-grid-tile *ngFor="let player of awayVotersAnimation">
-            <mat-card class="players">
-              {{player}}
-            </mat-card>
-          </mat-grid-tile>
-        </mat-grid-list>
+    </div>
+    <div class="column" [style.background-color]="currentMatch?.away.colour">
+      <p class="teamTitle">
+        {{currentMatch?.away.name}}
+      </p>
+      <div data-simplebar class="cardContainer" [@listAnimation]="awayVotersAnimation">
+        <mat-card *ngFor="let player of awayVotersAnimation" class="card">{{player}}</mat-card>
       </div>
     </div>
   </div>

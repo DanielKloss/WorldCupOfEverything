@@ -24,6 +24,15 @@ export class HomeComponent implements OnInit {
     this.SERVER_URL = this.serverService.getUrl();
     this.socket = socketIo(this.SERVER_URL);
 
+    this.socket.on("userChecked", (success: boolean) => {
+      if (success) {
+        this.errorMessage = "";
+        this.socket.emit('checkRoom', this.roomNumber);
+      } else {
+        this.errorMessage = "THAT NAME IS ALREADY TAKEN";
+      }
+    })
+
     this.socket.on("joinRoom", (success: boolean) => {
       if (success) {
         this.router.navigate(['/client', this.username, this.roomNumber])
@@ -38,7 +47,7 @@ export class HomeComponent implements OnInit {
       this.errorMessage = "YOU MUST ENTER A USERNAME";
     } else {
       this.errorMessage = "";
-      this.socket.emit('checkRoom', this.roomNumber);
+      this.socket.emit('checkUsername', this.username, this.roomNumber)
     }
   }
 }

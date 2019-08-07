@@ -47,6 +47,7 @@ export class ServerComponent implements OnInit {
 
   homeVotersAnimation: string[];
   awayVotersAnimation: string[];
+  voted: string[] = [];
 
   showSetup: boolean;
   showMatch: boolean;
@@ -73,16 +74,20 @@ export class ServerComponent implements OnInit {
     });
 
     this.socket.on('playerVoted', (vote: Vote) => {
-      if (vote.team == 0) {
-        this.nextMatch.homeVoters.push(vote.name);
-      } else {
-        this.nextMatch.awayVoters.push(vote.name)
-      }
+      if (this.voted.findIndex(v => v == vote.name) == -1) {
+        if (vote.team == 0) {
+          this.nextMatch.homeVoters.push(vote.name);
+        } else {
+          this.nextMatch.awayVoters.push(vote.name)
+        }
 
-      if (this.players.length == this.nextMatch.homeVoters.length + this.nextMatch.awayVoters.length) {
-        this.round = this.getStage();
-        this.currentMatch = this.nextMatch;
-        this.animateVotes();
+        if (this.players.length == this.nextMatch.homeVoters.length + this.nextMatch.awayVoters.length) {
+          this.round = this.getStage();
+          this.currentMatch = this.nextMatch;
+          this.animateVotes();
+        }
+
+        this.voted.push(vote.name);
       }
     });
 
@@ -134,6 +139,8 @@ export class ServerComponent implements OnInit {
   finishRound() {
     let homeIndex = this.counter;
     let awayIndex = this.counter + 1;
+
+    this.voted = [];
 
     //Remove Losing Team
     if (this.currentMatch.homeVoters.length > this.currentMatch.awayVoters.length) {

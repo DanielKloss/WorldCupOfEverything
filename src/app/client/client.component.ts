@@ -31,6 +31,7 @@ import { Vote } from '../models/vote';
 })
 export class ClientComponent implements OnInit {
   newVote: boolean;
+  waiting: boolean;
   newRound: boolean;
   round: string;
   username: string;
@@ -54,6 +55,7 @@ export class ClientComponent implements OnInit {
 
     this.socket.on('playMatch', (match: Match) => {
       this.newVote = true;
+      this.waiting = false;
       this.home = match.home;
       this.away = match.away;
     });
@@ -74,6 +76,7 @@ export class ClientComponent implements OnInit {
 
   onAnimationEvent(event: AnimationEvent) {
     if (event.triggerName == "voteFlyIn" && event.toState == "out") {
+      this.waiting = true;
       this.socket.emit("playerVote", this.vote, this.roomNumber);
     }
   }

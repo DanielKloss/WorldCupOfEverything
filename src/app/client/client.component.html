@@ -1,20 +1,20 @@
 <div class="columnContainer">
   <p class="title background-primary" *ngIf="round == undefined">{{username}}</p>
   <p class="title background-primary" *ngIf="round != undefined">{{round}}</p>
-  <div *ngIf="waiting == true">
-    <p class="waitingInstructions">WAITING FOR OTHER PLAYER'S VOTES...</p>
-  </div>
   <div *ngIf="home == null && away == null">
     <p class="waitingInstructions">WAITING FOR GAME TO START</p>
   </div>
+  <div *ngIf="vote != null">
+    <p class="waitingInstructions">EYES UP FOR THE RESULTS</p>
+  </div>
   <div class="columns" *ngIf="home != null && away != null">
     <div class="column">
-      <button mat-button class="votingButton" (click)="castVote(0)" [@voteFlyIn]="newVote ? 'in' : 'out'"
-        (@voteFlyIn.done)="onAnimationEvent($event)" [style.background-color]="home?.colour">{{home?.name}}</button>
+      <button mat-button class="votingButton" (click)="castVote(0)" [style.background-color]="home?.colour"
+        [disabled]="vote != null">{{home?.name}}</button>
     </div>
     <div class="column">
-      <button mat-button class="votingButton" (click)="castVote(1)" [@voteFlyIn]="newVote ? 'in' : 'out'"
-        (@voteFlyIn.done)="onAnimationEvent($event)" [style.background-color]="away?.colour">{{away?.name}}</button>
+      <button mat-button class="votingButton" (click)="castVote(1)" [style.background-color]="away?.colour"
+        [disabled]="vote != null">{{away?.name}}</button>
     </div>
   </div>
 </div>

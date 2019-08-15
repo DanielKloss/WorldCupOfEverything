@@ -1,7 +1,7 @@
 <div class="rowContainer" *ngIf="showSetup">
   <div class="column background-primary">
     <p class="listTitle">PLAYERS</p>
-    <p class="roomNumber">ROOM NUMBER - {{roomNumber}}</p>
+    <p class="roomNumber">GAME NUMBER - {{roomNumber}}</p>
     <div data-simplebar class="cardContainer">
       <mat-card *ngFor="let player of players" class="card">{{player}}</mat-card>
     </div>
@@ -37,7 +37,8 @@
       </div>
     </div>
   </div>
-  <button mat-button class="resultsButton background-primary" *ngIf="finishButton" (click)="showFinalResult()">SEE RESULTS</button>
+  <button mat-button class="resultsButton background-primary" *ngIf="finishButton" (click)="showFinalResult()">SEE
+    RESULTS</button>
 </div>
 
 <div class="columnContainer" *ngIf="showOverview">

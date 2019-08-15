@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import * as socketIo from 'socket.io-client';
 import { ActivatedRoute } from '@angular/router';
-import { trigger, state, style, transition, animate, keyframes, animation, AnimationEvent } from '@angular/animations';
 import { ServerService } from '../services/server.service';
 import { Team } from '../models/team';
 import { Match } from '../models/match';
@@ -12,27 +11,8 @@ import { Vote } from '../models/vote';
   selector: 'app-client',
   templateUrl: './client.component.html',
   styleUrls: ['./client.component.scss'],
-  animations: [
-    trigger('voteFlyIn', [
-      state('out', style({
-        height: '0%'
-      })),
-      state('in', style({
-        height: '100%'
-      })),
-      transition('out => in', [
-        animate('1s')
-      ]),
-      transition('in => out', [
-        animate('1s')
-      ])
-    ])
-  ]
 })
 export class ClientComponent implements OnInit {
-  newVote: boolean;
-  waiting: boolean;
-  newRound: boolean;
   round: string;
   username: string;
   roomNumber: string;
@@ -54,8 +34,7 @@ export class ClientComponent implements OnInit {
     this.socket.emit("username", this.username, this.roomNumber);
 
     this.socket.on('playMatch', (match: Match) => {
-      this.newVote = true;
-      this.waiting = false;
+      this.vote = null;
       this.home = match.home;
       this.away = match.away;
     });
@@ -70,14 +49,13 @@ export class ClientComponent implements OnInit {
   }
 
   castVote(vote: number) {
-    this.vote = new Vote(this.username, vote);
-    this.newVote = false;
-  }
-
-  onAnimationEvent(event: AnimationEvent) {
-    if (event.triggerName == "voteFlyIn" && event.toState == "out") {
-      this.waiting = true;
-      this.socket.emit("playerVote", this.vote, this.roomNumber);
+    if (vote == 0) {
+      this.away.colour = "grey";
+    } else {
+      this.home.colour = "grey";
     }
+    
+    this.vote = new Vote(this.username, vote);
+    this.socket.emit("playerVote", this.vote, this.roomNumber);
   }
 }

@@ -75,6 +75,8 @@ export class ServerComponent implements OnInit {
 
     this.socket.on('playerVoted', (vote: Vote) => {
       if (this.voted.findIndex(v => v == vote.name) == -1) {
+        this.voted.push(vote.name);
+
         if (vote.team == 0) {
           this.nextMatch.homeVoters.push(vote.name);
         } else {
@@ -86,8 +88,6 @@ export class ServerComponent implements OnInit {
           this.currentMatch = this.nextMatch;
           this.animateVotes();
         }
-
-        this.voted.push(vote.name);
       }
     });
 

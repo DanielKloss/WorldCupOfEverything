@@ -2,7 +2,7 @@ export class Team {
 
     public name: string;
     public colour: string;
-
+    public wonMatch: boolean;
     public knockedOutBy: Team;
     public stage: string;
 

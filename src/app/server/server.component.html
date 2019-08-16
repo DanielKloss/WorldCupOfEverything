@@ -26,6 +26,7 @@
       </p>
       <div data-simplebar class="cardContainer" [@listAnimation]="currentMatch?.homeVoters">
         <mat-card *ngFor="let player of currentMatch?.homeVoters" class="card">{{player}}</mat-card>
+        <div class="wonMatch" *ngIf="currentMatch?.home.wonMatch">WINNER</div>
       </div>
     </div>
     <div class="column" [style.background-color]="currentMatch?.away.colour">
@@ -34,6 +35,7 @@
       </p>
       <div data-simplebar class="cardContainer" [@listAnimation]="currentMatch?.awayVoters">
         <mat-card *ngFor="let player of currentMatch?.awayVoters" class="card">{{player}}</mat-card>
+        <div class="wonMatch" *ngIf="currentMatch?.away.wonMatch">WINNER</div>
       </div>
     </div>
   </div>

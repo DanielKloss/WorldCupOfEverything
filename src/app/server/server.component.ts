@@ -118,18 +118,21 @@ export class ServerComponent implements OnInit {
     let awayIndex = this.counter + 1;
 
     if (this.currentMatch.homeVoters.length > this.currentMatch.awayVoters.length) { //home win
+      this.currentMatch.home.wonMatch = true;
       this.category.teams[awayIndex].stage = this.round;
       this.category.teams[awayIndex].knockedOutBy = this.category.teams[homeIndex];
       this.standing.push(this.category.teams[awayIndex]);
       this.category.teams.splice(awayIndex, 1);
     }
     else if (this.currentMatch.awayVoters.length > this.currentMatch.homeVoters.length) { //away win
+      this.currentMatch.away.wonMatch = true;
       this.category.teams[homeIndex].stage = this.round;
       this.category.teams[homeIndex].knockedOutBy = this.category.teams[awayIndex];
       this.standing.push(this.category.teams[homeIndex]);
       this.category.teams.splice(homeIndex, 1);
     }
     else {//draw
+      this.currentMatch.home.wonMatch = true;
       this.category.teams[awayIndex].stage = this.round;
       this.category.teams[awayIndex].knockedOutBy = this.category.teams[homeIndex];
       this.standing.push(this.category.teams[awayIndex]);

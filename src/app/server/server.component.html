@@ -24,16 +24,16 @@
       <p class="teamTitle">
         {{currentMatch?.home.name}}
       </p>
-      <div data-simplebar class="cardContainer" [@listAnimation]="homeVotersAnimation">
-        <mat-card *ngFor="let player of homeVotersAnimation" class="card">{{player}}</mat-card>
+      <div data-simplebar class="cardContainer" [@listAnimation]="currentMatch?.homeVoters">
+        <mat-card *ngFor="let player of currentMatch?.homeVoters" class="card">{{player}}</mat-card>
       </div>
     </div>
     <div class="column" [style.background-color]="currentMatch?.away.colour">
       <p class="teamTitle">
         {{currentMatch?.away.name}}
       </p>
-      <div data-simplebar class="cardContainer" [@listAnimation]="awayVotersAnimation">
-        <mat-card *ngFor="let player of awayVotersAnimation" class="card">{{player}}</mat-card>
+      <div data-simplebar class="cardContainer" [@listAnimation]="currentMatch?.awayVoters">
+        <mat-card *ngFor="let player of currentMatch?.awayVoters" class="card">{{player}}</mat-card>
       </div>
     </div>
   </div>

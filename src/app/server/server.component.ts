@@ -74,20 +74,24 @@ export class ServerComponent implements OnInit {
     });
 
     this.socket.on('playerVoted', (vote: Vote) => {
-      if (this.voted.findIndex(v => v == vote.name) == -1) {
-        this.voted.push(vote.name);
+      if (this.voted.findIndex(v => v == vote.name) != -1) {
+        return;
+      }
 
-        if (vote.team == 0) {
-          this.nextMatch.homeVoters.push(vote.name);
-        } else {
-          this.nextMatch.awayVoters.push(vote.name)
-        }
+      this.voted.push(vote.name);
 
-        if (this.players.length == this.nextMatch.homeVoters.length + this.nextMatch.awayVoters.length) {
-          this.round = this.getStage();
-          this.currentMatch = this.nextMatch;
-          this.animateVotes();
-        }
+      if (vote.team == 0) {
+        this.nextMatch.homeVoters.push(vote.name);
+      } else {
+        this.nextMatch.awayVoters.push(vote.name)
+      }
+
+      if (this.players.length == this.nextMatch.homeVoters.length + this.nextMatch.awayVoters.length) {
+        this.voted = [];
+        this.round = this.getStage();
+        this.displayResults();
+        this.RemoveLosingTeam();
+        this.checkForWinner();
       }
     });
 
@@ -95,6 +99,51 @@ export class ServerComponent implements OnInit {
       let index = this.players.findIndex(u => u == username);
       this.players.splice(index, 1);
     });
+  }
+
+  private checkForWinner() {
+    if (this.category.teams.length == 1) {
+      this.finishButton = true;
+    } else {
+      if (this.counter >= this.category.teams.length - 1) {
+        this.counter = 0;
+      }
+      else {
+        this.counter++;
+      }
+      this.socket.emit("newRound", this.getStage(), this.roomNumber);
+      this.playMatch();
+    }
+  }
+
+  private RemoveLosingTeam() {
+    let homeIndex = this.counter;
+    let awayIndex = this.counter + 1;
+
+    if (this.currentMatch.homeVoters.length > this.currentMatch.awayVoters.length) { //home win
+      this.category.teams[awayIndex].stage = this.round;
+      this.category.teams[awayIndex].knockedOutBy = this.category.teams[homeIndex];
+      this.standing.push(this.category.teams[awayIndex]);
+      this.category.teams.splice(awayIndex, 1);
+    }
+    else if (this.currentMatch.awayVoters.length > this.currentMatch.homeVoters.length) { //away win
+      this.category.teams[homeIndex].stage = this.round;
+      this.category.teams[homeIndex].knockedOutBy = this.category.teams[awayIndex];
+      this.standing.push(this.category.teams[homeIndex]);
+      this.category.teams.splice(homeIndex, 1);
+    }
+    else {//draw
+      this.category.teams[awayIndex].stage = this.round;
+      this.category.teams[awayIndex].knockedOutBy = this.category.teams[homeIndex];
+      this.standing.push(this.category.teams[awayIndex]);
+      this.category.teams.splice(awayIndex, 1);
+    }
+  }
+
+  private displayResults() {
+    this.currentMatch = new Match(this.nextMatch.home, this.nextMatch.away);
+    this.currentMatch.homeVoters = this.nextMatch.homeVoters;
+    this.currentMatch.awayVoters = this.nextMatch.awayVoters;
   }
 
   getCategories(): void {
@@ -120,59 +169,6 @@ export class ServerComponent implements OnInit {
     this.nextMatch = new Match(this.category.teams[homeIndex], this.category.teams[awayIndex]);
 
     this.socket.emit("playMatch", { home: this.category.teams[homeIndex], away: this.category.teams[awayIndex] }, this.roomNumber)
-  }
-
-  async animateVotes() {
-    this.homeVotersAnimation = [];
-    this.awayVotersAnimation = [];
-    await this.delay(1);
-    this.homeVotersAnimation = this.currentMatch.homeVoters;
-    this.awayVotersAnimation = this.currentMatch.awayVoters;
-
-    this.finishRound();
-  }
-
-  delay(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
-  finishRound() {
-    let homeIndex = this.counter;
-    let awayIndex = this.counter + 1;
-
-    this.voted = [];
-
-    //Remove Losing Team
-    if (this.currentMatch.homeVoters.length > this.currentMatch.awayVoters.length) {
-      this.category.teams[awayIndex].stage = this.round;
-      this.category.teams[awayIndex].knockedOutBy = this.category.teams[homeIndex];
-      this.standing.push(this.category.teams[awayIndex])
-      this.category.teams.splice(awayIndex, 1);
-    } else if (this.currentMatch.awayVoters.length > this.currentMatch.homeVoters.length) {
-      this.category.teams[homeIndex].stage = this.round;
-      this.category.teams[homeIndex].knockedOutBy = this.category.teams[awayIndex];
-      this.standing.push(this.category.teams[homeIndex])
-      this.category.teams.splice(homeIndex, 1);
-    } else {
-      this.category.teams[awayIndex].stage = this.round;
-      this.category.teams[awayIndex].knockedOutBy = this.category.teams[homeIndex];
-      this.standing.push(this.category.teams[awayIndex])
-      this.category.teams.splice(awayIndex, 1);
-    }
-
-    //Decide if there's a winner
-    if (this.category.teams.length == 1) {
-      this.finishButton = true;
-    } else {
-      if (this.counter >= this.category.teams.length - 1) {
-        this.counter = 0;
-      } else {
-        this.counter++;
-      }
-
-      this.socket.emit("newRound", this.getStage(), this.roomNumber);
-      this.playMatch();
-    }
   }
 
   showFinalResult() {

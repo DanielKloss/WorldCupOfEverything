@@ -119,6 +119,7 @@ export class ServerComponent implements OnInit {
 
     if (this.currentMatch.homeVoters.length > this.currentMatch.awayVoters.length) { //home win
       this.currentMatch.home.wonMatch = true;
+      this.currentMatch.away.wonMatch = false;
       this.category.teams[awayIndex].stage = this.round;
       this.category.teams[awayIndex].knockedOutBy = this.category.teams[homeIndex];
       this.standing.push(this.category.teams[awayIndex]);
@@ -126,6 +127,7 @@ export class ServerComponent implements OnInit {
     }
     else if (this.currentMatch.awayVoters.length > this.currentMatch.homeVoters.length) { //away win
       this.currentMatch.away.wonMatch = true;
+      this.currentMatch.home.wonMatch = false;
       this.category.teams[homeIndex].stage = this.round;
       this.category.teams[homeIndex].knockedOutBy = this.category.teams[awayIndex];
       this.standing.push(this.category.teams[homeIndex]);
@@ -133,6 +135,7 @@ export class ServerComponent implements OnInit {
     }
     else {//draw
       this.currentMatch.home.wonMatch = true;
+      this.currentMatch.away.wonMatch = false;
       this.category.teams[awayIndex].stage = this.round;
       this.category.teams[awayIndex].knockedOutBy = this.category.teams[homeIndex];
       this.standing.push(this.category.teams[awayIndex]);
@@ -141,7 +144,7 @@ export class ServerComponent implements OnInit {
   }
 
   private displayResults() {
-    this.currentMatch = new Match(this.nextMatch.home, this.nextMatch.away);
+    this.currentMatch = new Match(this.nextMatch.home, this.nextMatch.away, this.nextMatch.round);
     this.currentMatch.homeVoters = this.nextMatch.homeVoters;
     this.currentMatch.awayVoters = this.nextMatch.awayVoters;
   }
@@ -166,9 +169,13 @@ export class ServerComponent implements OnInit {
   playMatch() {
     let homeIndex = this.counter;
     let awayIndex = this.counter + 1;
-    this.nextMatch = new Match(this.category.teams[homeIndex], this.category.teams[awayIndex]);
+    this.nextMatch = new Match(this.category.teams[homeIndex], this.category.teams[awayIndex], this.getStage());
 
     this.socket.emit("playMatch", { home: this.category.teams[homeIndex], away: this.category.teams[awayIndex] }, this.roomNumber)
+
+    if (this.currentMatch == null || this.nextMatch.round != this.currentMatch.round) {
+      window.speechSynthesis.speak(new SpeechSynthesisUtterance("<silence msec='5000' /> It's the " + this.nextMatch.round));
+    }
   }
 
   showFinalResult() {
@@ -188,8 +195,7 @@ export class ServerComponent implements OnInit {
     this.shuffleCategoryTeams();
     this.convertTeamsToUpperCase();
 
-    this.round = this.getStage();
-    this.socket.emit("newRound", this.round, this.roomNumber);
+    this.socket.emit("newRound", this.getStage(), this.roomNumber);
 
     this.showSetup = false;
     this.showMatch = true;

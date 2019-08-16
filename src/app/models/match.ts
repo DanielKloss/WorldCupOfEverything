@@ -6,11 +6,13 @@ export class Match {
     public away: Team;
     public homeVoters: string[];
     public awayVoters: string[];
+    public round: string;
 
-    constructor(hometeam: Team, awayTeam: Team) {
+    constructor(hometeam: Team, awayTeam: Team, round: string) {
         this.home = hometeam;
         this.away = awayTeam;
         this.homeVoters = [];
         this.awayVoters = [];
+        this.round = round;
     }
 }

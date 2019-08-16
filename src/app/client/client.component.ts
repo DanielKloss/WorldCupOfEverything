@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import * as socketIo from 'socket.io-client';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServerService } from '../services/server.service';
 import { Team } from '../models/team';
 import { Match } from '../models/match';
@@ -23,7 +23,7 @@ export class ClientComponent implements OnInit {
   private SERVER_URL;
   private socket;
 
-  constructor(private route: ActivatedRoute, private serverService: ServerService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private serverService: ServerService) { }
 
   ngOnInit() {
     this.SERVER_URL = this.serverService.getUrl();
@@ -31,6 +31,9 @@ export class ClientComponent implements OnInit {
 
     this.username = this.route.snapshot.paramMap.get('username').toUpperCase();
     this.roomNumber = this.route.snapshot.paramMap.get('roomNumber');
+
+    this.socket.emit('checkRoom', this.roomNumber);
+
     this.socket.emit("username", this.username, this.roomNumber);
 
     this.socket.on('playMatch', (match: Match) => {
@@ -42,6 +45,12 @@ export class ClientComponent implements OnInit {
     this.socket.on('newRound', (round: string) => {
       this.round = round;
     });
+
+    this.socket.on('joinRoom', (success: boolean) => {
+      if (!success) {
+        this.router.navigate(['']);
+      }
+    })
   }
 
   ngOnDestroy() {
@@ -54,7 +63,7 @@ export class ClientComponent implements OnInit {
     } else {
       this.home.colour = "grey";
     }
-    
+
     this.vote = new Vote(this.username, vote);
     this.socket.emit("playerVote", this.vote, this.roomNumber);
   }

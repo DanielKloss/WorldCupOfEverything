@@ -7,7 +7,7 @@ import { CategoriesService } from '../services/categories.service'
 import { ServerService } from '../services/server.service'
 import { Category } from '../models/category';
 import { Match } from '../models/match';
-import { trigger, state, transition, animate, style, AnimationEvent, query, stagger } from '@angular/animations';
+import { trigger, transition, animate, style, query, stagger } from '@angular/animations';
 import { Vote } from '../models/vote';
 import { Team } from '../models/team';
 
@@ -39,14 +39,11 @@ export class ServerComponent implements OnInit {
   category: Category;
   currentMatch: Match;
   nextMatch: Match;
-  newRound: boolean = false;
   round: string;
   standing: Team[] = [];
   counter: number = 0;
   players: string[] = []
 
-  homeVotersAnimation: string[];
-  awayVotersAnimation: string[];
   voted: string[] = [];
 
   showSetup: boolean;
